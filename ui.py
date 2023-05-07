@@ -71,10 +71,6 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
-
-
-
-
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "Translated mate"))
@@ -84,6 +80,3 @@ class Ui_MainWindow(object):
         self.toLang.setItemText(0, _translate("MainWindow", "Русский"))
         self.toLang.setItemText(1, _translate("MainWindow", "English"))
         self.menuMenu.setTitle(_translate("MainWindow", "Menu"))
-
-
-
