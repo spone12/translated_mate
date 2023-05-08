@@ -12,7 +12,10 @@ class TranslateMate(QtWidgets.QMainWindow, QtWidgets.QWidget, ui.Ui_MainWindow):
         self.translateLabel.mousePressEvent = self.translate
 
     def translate(self, eve):
+
+        self.translateBox.clear()
         text = self.inputBox.toPlainText()
+
         translated = Google().translate(text, 'en', 'ru')
         self.translateBox.insertPlainText(translated)
 
