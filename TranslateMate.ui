@@ -64,7 +64,7 @@ border-radius: 5% 20% / 10% 40%;</string>
    </widget>
    <widget class="QTextEdit" name="translateBox">
     <property name="enabled">
-     <bool>false</bool>
+     <bool>true</bool>
     </property>
     <property name="geometry">
      <rect>
@@ -78,6 +78,9 @@ border-radius: 5% 20% / 10% 40%;</string>
      <string notr="true">border-color: rgb(0, 0, 0);
 border-radius: 5% 20% / 10% 40%;
 background-color: rgb(245, 245, 247);</string>
+    </property>
+    <property name="readOnly">
+     <bool>true</bool>
     </property>
    </widget>
    <widget class="QComboBox" name="fromLang">

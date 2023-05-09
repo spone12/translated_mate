@@ -1,6 +1,6 @@
 import sys
 import ui
-from classes.translate.google import *
+from classes.translate.googleTranslator import *
 from PyQt6 import QtCore, QtGui, QtWidgets
 
 
@@ -14,10 +14,10 @@ class TranslateMate(QtWidgets.QMainWindow, QtWidgets.QWidget, ui.Ui_MainWindow):
     def translate(self, eve):
 
         self.translateBox.clear()
-        text = self.inputBox.toPlainText()
+        text = self.inputBox.toHtml()
 
-        translated = Google().translate(text, 'en', 'ru')
-        self.translateBox.insertPlainText(translated)
+        translated = GoogleTranslator().translate(text, 'ru')
+        self.translateBox.insertHtml(translated)
 
 
 if __name__ == "__main__":

@@ -7,12 +7,15 @@ from classes.translate.translateInterface import *
 from classes.logger import *
 
 
-class Google(TranslateInterface):
+class GoogleTranslator(TranslateInterface):
+    """
+        Google translate class
+    """
 
-    def translate(self, text: str, toLang: str, fromLang = '') -> str:
+    def translate(self, text: str, toLang: str, fromLang = 'auto') -> str:
 
-       _baseUrl    = "https://translate.google.com/m?hl=ru&sl={}&tl={}&ie=UTF-8&prev=_m&q={}"
-       formatedUrl = _baseUrl.format(toLang, fromLang, urllib.parse.quote(text, safe = ""))
+       _baseUrl    = "https://translate.google.com/m?hl=ru&sl={0}&tl={1}&ie=UTF-8&prev=_m&q={2}"
+       formatedUrl = _baseUrl.format(fromLang, toLang, urllib.parse.quote(text, safe = ""))
 
        return self.translateIternal(formatedUrl)
 
@@ -29,21 +32,17 @@ class Google(TranslateInterface):
             'Cache-Control': 'no-cache'
         }
 
-        parse = ''
+        parsedAnswer = ''
 
         try:
             request = requests.get(formatedUrl, headers = headers)
             request.raise_for_status()
         except HTTPError as http_err:
-            Logger().log('google', f"HTTP error occurred: {http_err}")
+            Logger().log(self.__class__.__name__, f"HTTP error occurred: {http_err}")
         except Exception as err:
-            Logger().log('google', f"Other error occurred: {err}")
+            Logger().log(self.__class__.__name__, f"Other error occurred: {err}")
         else:
-            Logger().log('google', f"Other error occurred:v verfve")
-            answer = BeautifulSoup(request.text, 'html.parser')
-            parse  = answer.find('div', class_='result-container').text
-       
-        return parse
-
-        
-       
+            answer       = BeautifulSoup(request.text, 'html.parser')
+            parsedAnswer = answer.find('div', class_='result-container').text
+           
+        return parsedAnswer
