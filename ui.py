@@ -27,33 +27,31 @@ class Ui_MainWindow(object):
         self.centralwidget = QtWidgets.QWidget(parent=MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.inputBox = QtWidgets.QTextEdit(parent=self.centralwidget)
-        self.inputBox.setGeometry(QtCore.QRect(10, 60, 420, 280))
-        self.inputBox.setStyleSheet("border-color: rgb(0, 0, 0);\n"
-"background-color: rgb(245, 245, 247);\n"
-"border-radius: 5% 20% / 10% 40%;")
+        self.inputBox.setGeometry(QtCore.QRect(10, 60, 430, 280))
+        self.inputBox.setStyleSheet("border: 1px solid black;\n"
+"border-radius: 1% 20% / 10% 40%;\n"
+"background: #f4f4f5;")
         self.inputBox.setObjectName("inputBox")
         self.translateBox = QtWidgets.QTextEdit(parent=self.centralwidget)
         self.translateBox.setEnabled(True)
-        self.translateBox.setGeometry(QtCore.QRect(450, 60, 420, 280))
-        self.translateBox.setStyleSheet("border-color: rgb(0, 0, 0);\n"
-"border-radius: 5% 20% / 10% 40%;\n"
-"background-color: rgb(245, 245, 247);")
+        self.translateBox.setGeometry(QtCore.QRect(445, 60, 430, 280))
+        self.translateBox.setStyleSheet("border: 1px solid black;\n"
+"border-radius: 1% 20% / 10% 40%;\n"
+"background: #f4f4f5;")
         self.translateBox.setReadOnly(True)
         self.translateBox.setObjectName("translateBox")
         self.fromLang = QtWidgets.QComboBox(parent=self.centralwidget)
         self.fromLang.setGeometry(QtCore.QRect(10, 10, 200, 30))
         self.fromLang.setStyleSheet("border-radius: 10px;\n"
 "background: white;")
+        self.fromLang.setEditable(True)
         self.fromLang.setObjectName("fromLang")
-        self.fromLang.addItem("")
-        self.fromLang.addItem("")
         self.toLang = QtWidgets.QComboBox(parent=self.centralwidget)
         self.toLang.setGeometry(QtCore.QRect(670, 10, 200, 30))
         self.toLang.setStyleSheet("border-radius: 10px;\n"
 "background: white;")
+        self.toLang.setEditable(True)
         self.toLang.setObjectName("toLang")
-        self.toLang.addItem("")
-        self.toLang.addItem("")
         self.translateLabel = QtWidgets.QLabel(parent=self.centralwidget)
         self.translateLabel.setGeometry(QtCore.QRect(430, 20, 30, 30))
         self.translateLabel.setCursor(QtGui.QCursor(QtCore.Qt.CursorShape.PointingHandCursor))
@@ -71,10 +69,20 @@ class Ui_MainWindow(object):
         self.menubar.setObjectName("menubar")
         self.menuMenu = QtWidgets.QMenu(parent=self.menubar)
         self.menuMenu.setObjectName("menuMenu")
+        self.menuTranslator = QtWidgets.QMenu(parent=self.menuMenu)
+        self.menuTranslator.setObjectName("menuTranslator")
         MainWindow.setMenuBar(self.menubar)
         self.statusbar = QtWidgets.QStatusBar(parent=MainWindow)
         self.statusbar.setObjectName("statusbar")
         MainWindow.setStatusBar(self.statusbar)
+        self.actionGoogle = QtGui.QAction(parent=MainWindow)
+        self.actionGoogle.setObjectName("actionGoogle")
+        self.actionExit = QtGui.QAction(parent=MainWindow)
+        self.actionExit.setObjectName("actionExit")
+        self.menuTranslator.addAction(self.actionGoogle)
+        self.menuMenu.addAction(self.menuTranslator.menuAction())
+        self.menuMenu.addSeparator()
+        self.menuMenu.addAction(self.actionExit)
         self.menubar.addAction(self.menuMenu.menuAction())
 
         self.retranslateUi(MainWindow)
@@ -84,11 +92,10 @@ class Ui_MainWindow(object):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "Translated mate"))
         self.inputBox.setPlaceholderText(_translate("MainWindow", "Input text"))
-        self.fromLang.setItemText(0, _translate("MainWindow", "Русский"))
-        self.fromLang.setItemText(1, _translate("MainWindow", "English"))
-        self.toLang.setItemText(0, _translate("MainWindow", "Русский"))
-        self.toLang.setItemText(1, _translate("MainWindow", "English"))
         self.menuMenu.setTitle(_translate("MainWindow", "Menu"))
+        self.menuTranslator.setTitle(_translate("MainWindow", "Translator"))
+        self.actionGoogle.setText(_translate("MainWindow", "Google"))
+        self.actionExit.setText(_translate("MainWindow", "Exit"))
 
 
 if __name__ == "__main__":

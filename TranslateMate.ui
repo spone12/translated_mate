@@ -49,14 +49,14 @@
      <rect>
       <x>10</x>
       <y>60</y>
-      <width>420</width>
+      <width>430</width>
       <height>280</height>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">border-color: rgb(0, 0, 0);
-background-color: rgb(245, 245, 247);
-border-radius: 5% 20% / 10% 40%;</string>
+     <string notr="true">border: 1px solid black;
+border-radius: 1% 20% / 10% 40%;
+background: #f4f4f5;</string>
     </property>
     <property name="placeholderText">
      <string>Input text</string>
@@ -68,16 +68,16 @@ border-radius: 5% 20% / 10% 40%;</string>
     </property>
     <property name="geometry">
      <rect>
-      <x>450</x>
+      <x>445</x>
       <y>60</y>
-      <width>420</width>
+      <width>430</width>
       <height>280</height>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">border-color: rgb(0, 0, 0);
-border-radius: 5% 20% / 10% 40%;
-background-color: rgb(245, 245, 247);</string>
+     <string notr="true">border: 1px solid black;
+border-radius: 1% 20% / 10% 40%;
+background: #f4f4f5;</string>
     </property>
     <property name="readOnly">
      <bool>true</bool>
@@ -96,16 +96,9 @@ background-color: rgb(245, 245, 247);</string>
      <string notr="true">border-radius: 10px;
 background: white;</string>
     </property>
-    <item>
-     <property name="text">
-      <string>Русский</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>English</string>
-     </property>
-    </item>
+    <property name="editable">
+     <bool>true</bool>
+    </property>
    </widget>
    <widget class="QComboBox" name="toLang">
     <property name="geometry">
@@ -120,16 +113,9 @@ background: white;</string>
      <string notr="true">border-radius: 10px;
 background: white;</string>
     </property>
-    <item>
-     <property name="text">
-      <string>Русский</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>English</string>
-     </property>
-    </item>
+    <property name="editable">
+     <bool>true</bool>
+    </property>
    </widget>
    <widget class="QLabel" name="translateLabel">
     <property name="geometry">
@@ -175,13 +161,30 @@ background-repeat: no-repeat;</string>
     <property name="title">
      <string>Menu</string>
     </property>
+    <widget class="QMenu" name="menuTranslator">
+     <property name="title">
+      <string>Translator</string>
+     </property>
+     <addaction name="actionGoogle"/>
+    </widget>
+    <addaction name="menuTranslator"/>
+    <addaction name="separator"/>
+    <addaction name="actionExit"/>
    </widget>
    <addaction name="menuMenu"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionGoogle">
+   <property name="text">
+    <string>Google</string>
+   </property>
+  </action>
+  <action name="actionExit">
+   <property name="text">
+    <string>Exit</string>
+   </property>
+  </action>
  </widget>
- <resources>
-  <include location="img/img.qrc"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>
