@@ -5,6 +5,9 @@ from bs4 import BeautifulSoup
 import urllib.parse
 from classes.translate.translateInterface import *
 from classes.logger import *
+import time
+import math
+from textwrap import wrap
 
 
 class GoogleTranslator(TranslateInterface):
@@ -13,11 +16,27 @@ class GoogleTranslator(TranslateInterface):
     """
 
     def translate(self, text: str, toLang: str, fromLang = 'auto') -> str:
+        
+        translatedText = ''
 
-       _baseUrl    = "https://translate.google.com/m?hl=ru&sl={0}&tl={1}&ie=UTF-8&prev=_m&q={2}"
-       formatedUrl = _baseUrl.format(fromLang, toLang, urllib.parse.quote(text, safe = ""))
+        if len(text) > 2000:
 
-       return self.translateIternal(formatedUrl)
+            # Dynamic text breakdown into chunks    
+            length = math.ceil(len(text) * 25 / 100)
+            chunkedText = wrap(text, length)
+
+            for currentTextBlock in chunkedText:
+                _baseUrl       = "https://translate.google.com/m?hl=ru&sl={0}&tl={1}&ie=UTF-8&prev=_m&q={2}"
+                formatedUrl    = _baseUrl.format(fromLang, toLang, urllib.parse.quote(currentTextBlock, safe = ""))
+                translatedText += self.translateIternal(formatedUrl)
+                time.sleep(0.200)
+
+        else:
+            _baseUrl       = "https://translate.google.com/m?hl=ru&sl={0}&tl={1}&ie=UTF-8&prev=_m&q={2}"
+            formatedUrl    = _baseUrl.format(fromLang, toLang, urllib.parse.quote(text, safe = ""))
+            translatedText = self.translateIternal(formatedUrl)
+
+        return translatedText
 
     
     def translateIternal(self, formatedUrl: str):
