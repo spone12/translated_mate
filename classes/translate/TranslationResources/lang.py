@@ -30,11 +30,12 @@ class Lang():
         
         self.objectUi.toLang.addItems(languageValues)
     
-    def getKeyLang(self, value):
+    def getKeyLang(self, value) -> str:
 
         for k, v in googleLanguages.items():
             if (isinstance(v, list) and value in v) or value == v:
                 return k
         else:
             Logger().log(self.__class__.__name__, f"Cant find language: {value}")
+            return 'auto'
 
