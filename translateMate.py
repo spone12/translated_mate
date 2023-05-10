@@ -1,3 +1,5 @@
+# Translate mate
+# Version 0.3
 import sys
 import ui
 from classes.translate.googleTranslator import *
@@ -16,10 +18,14 @@ class TranslateMate(QtWidgets.QMainWindow, QtWidgets.QWidget, ui.Ui_MainWindow):
         
         self.lang = Lang(self)
         self.translateLabel.mousePressEvent = self.translate
+        self.reverseTranslate.mousePressEvent = self.lang.reverseTranslations
         self.actionExit.triggered.connect(self.exitProgramm)
     
 
     def translate(self, eve) -> None:
+        """
+           Preparation before the translation 
+        """
 
         if not self.inputBox.toPlainText():
             return
@@ -34,7 +40,7 @@ class TranslateMate(QtWidgets.QMainWindow, QtWidgets.QWidget, ui.Ui_MainWindow):
         )
         self.translateBox.insertHtml(translated)
 
-    
+
     def exitProgramm(self):
 
         sys.exit(app.exec())
