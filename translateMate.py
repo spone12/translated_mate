@@ -4,6 +4,7 @@ import sys
 import ui
 from classes.translate.googleTranslator import *
 from classes.translate.TranslationResources.lang import Lang
+from classes.menu.menu import Menu
 from PyQt6 import QtCore, QtGui, QtWidgets
 
 
@@ -17,9 +18,10 @@ class TranslateMate(QtWidgets.QMainWindow, QtWidgets.QWidget, ui.Ui_MainWindow):
         self.setWindowIcon(QtGui.QIcon('appico.ico'))
         
         self.lang = Lang(self)
+        self.menu = Menu(self)
         self.translateLabel.mousePressEvent = self.translate
         self.reverseTranslate.mousePressEvent = self.lang.reverseTranslations
-        self.actionExit.triggered.connect(self.exitProgramm)
+        self.actionExit.triggered.connect(self.menu.exitProgramm)
     
 
     def translate(self, eve) -> None:
@@ -39,11 +41,6 @@ class TranslateMate(QtWidgets.QMainWindow, QtWidgets.QWidget, ui.Ui_MainWindow):
             self.lang.getKeyLang(self.fromLang.currentText())
         )
         self.translateBox.insertHtml(translated)
-
-
-    def exitProgramm(self):
-
-        sys.exit(app.exec())
 
 
 if __name__ == "__main__":

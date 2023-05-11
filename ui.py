@@ -70,7 +70,6 @@ class Ui_MainWindow(object):
 "    height: 25px;\n"
 "    border-width: 0px;\n"
 "    padding-right: 10px;\n"
-"    cursor: pointer;\n"
 "}\n"
 "\n"
 "#fromLang:pressed {\n"
@@ -104,7 +103,6 @@ class Ui_MainWindow(object):
 "    height: 25px;\n"
 "    border-width: 0px;\n"
 "    padding-right: 10px;\n"
-"    cursor: pointer;\n"
 "}\n"
 "\n"
 "#toLang:pressed {\n"
@@ -114,15 +112,13 @@ class Ui_MainWindow(object):
         self.toLang.setEditable(True)
         self.toLang.setObjectName("toLang")
         self.translateLabel = QtWidgets.QLabel(parent=self.centralwidget)
-        self.translateLabel.setGeometry(QtCore.QRect(10, 60, 30, 30))
+        self.translateLabel.setGeometry(QtCore.QRect(5, 60, 40, 40))
         self.translateLabel.setCursor(QtGui.QCursor(QtCore.Qt.CursorShape.PointingHandCursor))
         self.translateLabel.setFocusPolicy(QtCore.Qt.FocusPolicy.NoFocus)
         self.translateLabel.setAutoFillBackground(False)
         self.translateLabel.setStyleSheet("#translateLabel {\n"
-"    background-size: 30px;\n"
 "    background-repeat: no-repeat;\n"
 "     border-radius:  5px;\n"
-"    backgournd-color:  none;\n"
 "}\n"
 "#translateLabel:hover  {\n"
 "    background:  #fff6f7;\n"
@@ -132,15 +128,13 @@ class Ui_MainWindow(object):
         self.translateLabel.setScaledContents(True)
         self.translateLabel.setObjectName("translateLabel")
         self.reverseTranslate = QtWidgets.QLabel(parent=self.centralwidget)
-        self.reverseTranslate.setGeometry(QtCore.QRect(10, 100, 30, 30))
+        self.reverseTranslate.setGeometry(QtCore.QRect(470, 25, 25, 25))
         self.reverseTranslate.setCursor(QtGui.QCursor(QtCore.Qt.CursorShape.PointingHandCursor))
         self.reverseTranslate.setFocusPolicy(QtCore.Qt.FocusPolicy.NoFocus)
         self.reverseTranslate.setAutoFillBackground(False)
         self.reverseTranslate.setStyleSheet("#reverseTranslate {\n"
-"    background-size: 30px;\n"
 "    background-repeat: no-repeat;\n"
 "     border-radius:  5px;\n"
-"    backgournd-color:  none;\n"
 "}\n"
 "#reverseTranslate:hover  {\n"
 "    background:  #fff6f7;\n"
@@ -149,32 +143,69 @@ class Ui_MainWindow(object):
         self.reverseTranslate.setPixmap(QtGui.QPixmap("img/reverseTranslate.png"))
         self.reverseTranslate.setScaledContents(True)
         self.reverseTranslate.setObjectName("reverseTranslate")
-        self.line = QtWidgets.QFrame(parent=self.centralwidget)
-        self.line.setGeometry(QtCore.QRect(270, 40, 421, 16))
-        self.line.setFrameShape(QtWidgets.QFrame.Shape.HLine)
-        self.line.setFrameShadow(QtWidgets.QFrame.Shadow.Sunken)
-        self.line.setObjectName("line")
+        self.clearInput = QtWidgets.QLabel(parent=self.centralwidget)
+        self.clearInput.setGeometry(QtCore.QRect(450, 70, 15, 15))
+        self.clearInput.setCursor(QtGui.QCursor(QtCore.Qt.CursorShape.PointingHandCursor))
+        self.clearInput.setFocusPolicy(QtCore.Qt.FocusPolicy.NoFocus)
+        self.clearInput.setAutoFillBackground(False)
+        self.clearInput.setStyleSheet("#clearInput {\n"
+"    background-repeat: no-repeat;\n"
+"     border-radius:  5px;\n"
+"    background: #f4f4f5;\n"
+"    opacity: 0.5;\n"
+"}\n"
+"#clearInput:hover  {\n"
+"    opacity: 1;\n"
+"}")
+        self.clearInput.setText("")
+        self.clearInput.setPixmap(QtGui.QPixmap("img/close.png"))
+        self.clearInput.setScaledContents(True)
+        self.clearInput.setObjectName("clearInput")
+        self.copyTranslate = QtWidgets.QLabel(parent=self.centralwidget)
+        self.copyTranslate.setGeometry(QtCore.QRect(890, 310, 15, 15))
+        self.copyTranslate.setCursor(QtGui.QCursor(QtCore.Qt.CursorShape.PointingHandCursor))
+        self.copyTranslate.setFocusPolicy(QtCore.Qt.FocusPolicy.NoFocus)
+        self.copyTranslate.setAutoFillBackground(False)
+        self.copyTranslate.setStyleSheet("#copyTranslate {\n"
+"    background-repeat: no-repeat;\n"
+"     border-radius:  5px;\n"
+"    opacity: 0.5;\n"
+"    background: #f4f4f5;\n"
+"}\n"
+"#copyTranslate:hover  {\n"
+"    opacity: 1;\n"
+"}")
+        self.copyTranslate.setText("")
+        self.copyTranslate.setPixmap(QtGui.QPixmap("img/copy.png"))
+        self.copyTranslate.setScaledContents(True)
+        self.copyTranslate.setObjectName("copyTranslate")
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(parent=MainWindow)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 925, 22))
         self.menubar.setObjectName("menubar")
         self.menuMenu = QtWidgets.QMenu(parent=self.menubar)
         self.menuMenu.setObjectName("menuMenu")
-        self.menuTranslator = QtWidgets.QMenu(parent=self.menuMenu)
-        self.menuTranslator.setObjectName("menuTranslator")
+        self.menuTranslate = QtWidgets.QMenu(parent=self.menubar)
+        self.menuTranslate.setObjectName("menuTranslate")
+        self.menuTranslator_2 = QtWidgets.QMenu(parent=self.menuTranslate)
+        self.menuTranslator_2.setObjectName("menuTranslator_2")
         MainWindow.setMenuBar(self.menubar)
         self.statusbar = QtWidgets.QStatusBar(parent=MainWindow)
         self.statusbar.setObjectName("statusbar")
         MainWindow.setStatusBar(self.statusbar)
-        self.actionGoogle = QtGui.QAction(parent=MainWindow)
-        self.actionGoogle.setObjectName("actionGoogle")
         self.actionExit = QtGui.QAction(parent=MainWindow)
         self.actionExit.setObjectName("actionExit")
-        self.menuTranslator.addAction(self.actionGoogle)
-        self.menuMenu.addAction(self.menuTranslator.menuAction())
-        self.menuMenu.addSeparator()
+        self.googleTranslator = QtGui.QAction(parent=MainWindow)
+        self.googleTranslator.setObjectName("googleTranslator")
+        self.actionLeaveTheFormatting = QtGui.QAction(parent=MainWindow)
+        self.actionLeaveTheFormatting.setCheckable(True)
+        self.actionLeaveTheFormatting.setObjectName("actionLeaveTheFormatting")
         self.menuMenu.addAction(self.actionExit)
+        self.menuTranslator_2.addAction(self.googleTranslator)
+        self.menuTranslate.addAction(self.menuTranslator_2.menuAction())
+        self.menuTranslate.addAction(self.actionLeaveTheFormatting)
         self.menubar.addAction(self.menuMenu.menuAction())
+        self.menubar.addAction(self.menuTranslate.menuAction())
 
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
@@ -185,10 +216,14 @@ class Ui_MainWindow(object):
         self.inputBox.setPlaceholderText(_translate("MainWindow", "Input text"))
         self.translateLabel.setToolTip(_translate("MainWindow", "Translate text"))
         self.reverseTranslate.setToolTip(_translate("MainWindow", "Reverse translate"))
+        self.clearInput.setToolTip(_translate("MainWindow", "Clear translate and input"))
+        self.copyTranslate.setToolTip(_translate("MainWindow", "Copy translate"))
         self.menuMenu.setTitle(_translate("MainWindow", "Menu"))
-        self.menuTranslator.setTitle(_translate("MainWindow", "Translator"))
-        self.actionGoogle.setText(_translate("MainWindow", "Google"))
+        self.menuTranslate.setTitle(_translate("MainWindow", "Translate"))
+        self.menuTranslator_2.setTitle(_translate("MainWindow", "Translator"))
         self.actionExit.setText(_translate("MainWindow", "Exit"))
+        self.googleTranslator.setText(_translate("MainWindow", "Google"))
+        self.actionLeaveTheFormatting.setText(_translate("MainWindow", "Leave the formatting"))
 
 
 if __name__ == "__main__":

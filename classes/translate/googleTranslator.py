@@ -19,17 +19,16 @@ class GoogleTranslator(TranslateInterface):
         
         translatedText = ''
 
-        if len(text) > 2000:
+        if len(text) > 5000:
 
-            # Dynamic text breakdown into chunks    
-            length = math.ceil(len(text) * 25 / 100)
-            chunkedText = wrap(text, length)
+            # Chunking elements of large text
+            chunkedText = wrap(text, 5000)
 
             for currentTextBlock in chunkedText:
                 _baseUrl       = "https://translate.google.com/m?hl=ru&sl={0}&tl={1}&ie=UTF-8&prev=_m&q={2}"
                 formatedUrl    = _baseUrl.format(fromLang, toLang, urllib.parse.quote(currentTextBlock, safe = ""))
                 translatedText += self.translateIternal(formatedUrl)
-                time.sleep(0.200)
+                time.sleep(0.300)
 
         else:
             _baseUrl       = "https://translate.google.com/m?hl=ru&sl={0}&tl={1}&ie=UTF-8&prev=_m&q={2}"
