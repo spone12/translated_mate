@@ -5,6 +5,7 @@ import ui
 from classes.translate.googleTranslator import *
 from classes.translate.TranslationResources.lang import Lang
 from classes.menu.menu import Menu
+from classes.menu.buttons import Buttons
 from PyQt6 import QtCore, QtGui, QtWidgets
 
 
@@ -19,8 +20,11 @@ class TranslateMate(QtWidgets.QMainWindow, QtWidgets.QWidget, ui.Ui_MainWindow):
         
         self.lang = Lang(self)
         self.menu = Menu(self)
+        self.buttons = Buttons(self)
         self.translateLabel.mousePressEvent = self.translate
         self.reverseTranslate.mousePressEvent = self.lang.reverseTranslations
+        self.clearInput.mousePressEvent = self.buttons.clearTranslate
+        self.copyTranslate.mousePressEvent = self.buttons.copyToClipboard
         self.actionExit.triggered.connect(self.menu.exitProgramm)
     
 
