@@ -350,7 +350,7 @@ font-size: 14px;</string>
      <x>0</x>
      <y>0</y>
      <width>925</width>
-     <height>22</height>
+     <height>27</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuMenu">
@@ -363,13 +363,14 @@ font-size: 14px;</string>
     <property name="title">
      <string>Translate</string>
     </property>
-    <widget class="QMenu" name="menuTranslator_2">
+    <widget class="QMenu" name="chooseTranslator">
      <property name="title">
       <string>Translator</string>
      </property>
-     <addaction name="googleTranslator"/>
+     <addaction name="actionDeeplTranslator"/>
+     <addaction name="actionGoogleTranslator"/>
     </widget>
-    <addaction name="menuTranslator_2"/>
+    <addaction name="chooseTranslator"/>
     <addaction name="actionLeaveTheFormatting"/>
    </widget>
    <addaction name="menuMenu"/>
@@ -381,7 +382,13 @@ font-size: 14px;</string>
     <string>Exit</string>
    </property>
   </action>
-  <action name="googleTranslator">
+  <action name="actionGoogleTranslator">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
    <property name="text">
     <string>Google</string>
    </property>
@@ -392,6 +399,14 @@ font-size: 14px;</string>
    </property>
    <property name="text">
     <string>Leave the formatting</string>
+   </property>
+  </action>
+  <action name="actionDeeplTranslator">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Deepl</string>
    </property>
   </action>
  </widget>

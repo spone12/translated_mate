@@ -3,6 +3,7 @@ import requests
 from requests.exceptions import HTTPError
 from classes.logger import *
 from classes.translate.TranslationResources.googleTranslateLanguages import *
+from classes.translate.TranslationResources.deeplTranslateLanguages import *
 
 
 class LoadingLangs():
@@ -14,7 +15,14 @@ class LoadingLangs():
         self.ui = ui
         self.loadLangArrays()
         
-    def loadLangArrays(self, translator = 'google') -> None:
+    def chooseTranslator(self, event):
+        """
+            Choose the translaor
+        """
+        translators = ['Google', 'Deepl']
+        self.loadLangArrays(event.text())
+        
+    def loadLangArrays(self, translator = 'Google') -> None:
         """
             Change of translator and loading of language arrays
         """
@@ -22,8 +30,13 @@ class LoadingLangs():
         languageValues = []
 
         match translator:
-            case 'google':
+            case 'Google':
                 languageValues = list(googleLanguages.values())
+            case 'Deepl':
+                languageValues = list(deeplLanguages.values())
+        
+        self.ui.fromLang.clear()
+        self.ui.toLang.clear()
 
         self.ui.fromLang.addItems(languageValues)
         self.ui.fromLang.setCurrentIndex(languageValues.index('English'))

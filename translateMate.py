@@ -27,14 +27,17 @@ class TranslateMate(QtWidgets.QMainWindow, QtWidgets.QWidget, ui.Ui_MainWindow):
 
         self.programEvents()
    
-    
-    def programEvents(self) -> None:
         
+    def programEvents(self) -> None:
+        """
+            Loading program events
+        """
         self.translateLabel.mousePressEvent = self.buttons.prepareTranslate
         self.reverseTranslate.mousePressEvent = self.buttons.reverseTranslations
         self.clearInput.mousePressEvent = self.buttons.clearTranslate
         self.copyTranslate.mousePressEvent = self.buttons.copyToClipboard
         self.actionExit.triggered.connect(self.menu.exitProgramm)
+        self.chooseTranslator.triggered.connect(self.loadLang.chooseTranslator)
 
 
 if __name__ == "__main__":

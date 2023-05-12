@@ -44,7 +44,11 @@ class Buttons():
             return
 
         self.ui.translateBox.clear()
-        text = self.ui.inputBox.toHtml()
+        text = self.ui.inputBox.toPlainText()
+        
+        #if leave the formatting
+        if self.ui.actionLeaveTheFormatting.isChecked():
+            text = self.ui.inputBox.toHtml()
 
         translated = GoogleTranslator().translate(
             text, 
