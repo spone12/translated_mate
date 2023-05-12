@@ -60,7 +60,7 @@
      <string notr="true">border: 1px solid black;
 border-radius: 1% 20% / 10% 40%;
 background: #f4f4f5;
-font-size: 11px;</string>
+font-size: 14px;</string>
     </property>
     <property name="placeholderText">
      <string>Input text</string>
@@ -82,7 +82,7 @@ font-size: 11px;</string>
      <string notr="true">border: 1px solid black;
 border-radius: 1% 20% / 10% 40%;
 background: #f4f4f5;
-font-size: 11px;</string>
+font-size: 14px;</string>
     </property>
     <property name="readOnly">
      <bool>true</bool>
@@ -272,7 +272,7 @@ font-size: 11px;</string>
      <enum>Qt::NoFocus</enum>
     </property>
     <property name="toolTip">
-     <string>Clear translate and input</string>
+     <string>Clear input and translated text</string>
     </property>
     <property name="autoFillBackground">
      <bool>false</bool>
@@ -314,7 +314,7 @@ font-size: 11px;</string>
      <enum>Qt::NoFocus</enum>
     </property>
     <property name="toolTip">
-     <string>Copy translate</string>
+     <string>Copy translate to clipboard</string>
     </property>
     <property name="autoFillBackground">
      <bool>false</bool>
@@ -329,6 +329,9 @@ font-size: 11px;</string>
 #copyTranslate:hover  {
 	opacity: 1;
 }</string>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::NoFrame</enum>
     </property>
     <property name="text">
      <string/>

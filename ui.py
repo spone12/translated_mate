@@ -34,7 +34,7 @@ class Ui_MainWindow(object):
         self.inputBox.setStyleSheet("border: 1px solid black;\n"
 "border-radius: 1% 20% / 10% 40%;\n"
 "background: #f4f4f5;\n"
-"font-size: 11px;")
+"font-size: 14px;")
         self.inputBox.setObjectName("inputBox")
         self.translateBox = QtWidgets.QTextEdit(parent=self.centralwidget)
         self.translateBox.setEnabled(True)
@@ -42,7 +42,7 @@ class Ui_MainWindow(object):
         self.translateBox.setStyleSheet("border: 1px solid black;\n"
 "border-radius: 1% 20% / 10% 40%;\n"
 "background: #f4f4f5;\n"
-"font-size: 11px;")
+"font-size: 14px;")
         self.translateBox.setReadOnly(True)
         self.translateBox.setObjectName("translateBox")
         self.fromLang = QtWidgets.QComboBox(parent=self.centralwidget)
@@ -162,7 +162,7 @@ class Ui_MainWindow(object):
         self.clearInput.setScaledContents(True)
         self.clearInput.setObjectName("clearInput")
         self.copyTranslate = QtWidgets.QLabel(parent=self.centralwidget)
-        self.copyTranslate.setGeometry(QtCore.QRect(890, 310, 15, 15))
+        self.copyTranslate.setGeometry(QtCore.QRect(885, 310, 15, 15))
         self.copyTranslate.setCursor(QtGui.QCursor(QtCore.Qt.CursorShape.PointingHandCursor))
         self.copyTranslate.setFocusPolicy(QtCore.Qt.FocusPolicy.NoFocus)
         self.copyTranslate.setAutoFillBackground(False)
@@ -175,6 +175,7 @@ class Ui_MainWindow(object):
 "#copyTranslate:hover  {\n"
 "    opacity: 1;\n"
 "}")
+        self.copyTranslate.setFrameShape(QtWidgets.QFrame.Shape.NoFrame)
         self.copyTranslate.setText("")
         self.copyTranslate.setPixmap(QtGui.QPixmap("img/copy.png"))
         self.copyTranslate.setScaledContents(True)
@@ -216,8 +217,8 @@ class Ui_MainWindow(object):
         self.inputBox.setPlaceholderText(_translate("MainWindow", "Input text"))
         self.translateLabel.setToolTip(_translate("MainWindow", "Translate text"))
         self.reverseTranslate.setToolTip(_translate("MainWindow", "Reverse translate"))
-        self.clearInput.setToolTip(_translate("MainWindow", "Clear translate and input"))
-        self.copyTranslate.setToolTip(_translate("MainWindow", "Copy translate"))
+        self.clearInput.setToolTip(_translate("MainWindow", "Clear input and translated text"))
+        self.copyTranslate.setToolTip(_translate("MainWindow", "Copy translate to clipboard"))
         self.menuMenu.setTitle(_translate("MainWindow", "Menu"))
         self.menuTranslate.setTitle(_translate("MainWindow", "Translate"))
         self.menuTranslator_2.setTitle(_translate("MainWindow", "Translator"))

@@ -1,16 +1,19 @@
 # Translate mate
-# Version 0.3
+# Version 0.4
 import sys
 import ui
+from PyQt6 import QtCore, QtGui, QtWidgets
+from PyQt6.QtCore import Qt
 from classes.translate.googleTranslator import *
-from classes.translate.TranslationResources.lang import Lang
+from classes.translate.TranslationResources.loadLangs import LoadingLangs
 from classes.menu.menu import Menu
 from classes.menu.buttons import Buttons
-from PyQt6 import QtCore, QtGui, QtWidgets
 
 
 class TranslateMate(QtWidgets.QMainWindow, QtWidgets.QWidget, ui.Ui_MainWindow):
-
+    """
+        Main program launch class
+    """
 
     def __init__(self):
 
@@ -18,33 +21,20 @@ class TranslateMate(QtWidgets.QMainWindow, QtWidgets.QWidget, ui.Ui_MainWindow):
         self.setupUi(self)
         self.setWindowIcon(QtGui.QIcon('appico.ico'))
         
-        self.lang = Lang(self)
+        self.loadLang = LoadingLangs(self)
         self.menu = Menu(self)
         self.buttons = Buttons(self)
-        self.translateLabel.mousePressEvent = self.translate
-        self.reverseTranslate.mousePressEvent = self.lang.reverseTranslations
+
+        self.programEvents()
+   
+    
+    def programEvents(self) -> None:
+        
+        self.translateLabel.mousePressEvent = self.buttons.prepareTranslate
+        self.reverseTranslate.mousePressEvent = self.buttons.reverseTranslations
         self.clearInput.mousePressEvent = self.buttons.clearTranslate
         self.copyTranslate.mousePressEvent = self.buttons.copyToClipboard
         self.actionExit.triggered.connect(self.menu.exitProgramm)
-    
-
-    def translate(self, eve) -> None:
-        """
-           Preparation before the translation 
-        """
-
-        if not self.inputBox.toPlainText():
-            return
-
-        self.translateBox.clear()
-        text = self.inputBox.toHtml()
-
-        translated = GoogleTranslator().translate(
-            text, 
-            self.lang.getKeyLang(self.toLang.currentText()),
-            self.lang.getKeyLang(self.fromLang.currentText())
-        )
-        self.translateBox.insertHtml(translated)
 
 
 if __name__ == "__main__":
