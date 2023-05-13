@@ -9,8 +9,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>925</width>
-    <height>385</height>
+    <width>1060</width>
+    <height>484</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -27,8 +27,8 @@
   </property>
   <property name="maximumSize">
    <size>
-    <width>925</width>
-    <height>385</height>
+    <width>92500</width>
+    <height>4000</height>
    </size>
   </property>
   <property name="mouseTracking">
@@ -44,6 +44,31 @@
    <string notr="true">* {
    background-color: #b8b6b6;
    font: Fira Sans Condensed;     
+}
+QScrollBar {
+	border: none;
+}
+QScrollBar:vertical {
+    background: #f4f4f5;
+    width: 10px;
+    margin: 0px;
+	border: none;
+	border-radius: 0px;
+}
+QScrollBar::handle:vertical {
+    background: #d0d0d0;
+    min-height: 0px;
+	border-radius: 7px;
+}
+QScrollBar::add-line:vertical {
+    height: -10px;
+    subcontrol-position: bottom;
+    subcontrol-origin: margin;
+}
+QScrollBar::sub-line:vertical {
+    height:  -10 px;
+    subcontrol-position: top;
+    subcontrol-origin: margin;
 }</string>
   </property>
   <widget class="QWidget" name="centralwidget">
@@ -52,15 +77,16 @@
      <rect>
       <x>50</x>
       <y>60</y>
-      <width>430</width>
-      <height>280</height>
+      <width>500</width>
+      <height>380</height>
      </rect>
     </property>
     <property name="styleSheet">
      <string notr="true">border: 1px solid black;
-border-radius: 1% 20% / 10% 40%;
+border-radius: 10px;
 background: #f4f4f5;
-font-size: 14px;</string>
+font-size: 16px;
+</string>
     </property>
     <property name="placeholderText">
      <string>Input text</string>
@@ -72,17 +98,17 @@ font-size: 14px;</string>
     </property>
     <property name="geometry">
      <rect>
-      <x>485</x>
+      <x>555</x>
       <y>60</y>
-      <width>430</width>
-      <height>280</height>
+      <width>500</width>
+      <height>380</height>
      </rect>
     </property>
     <property name="styleSheet">
      <string notr="true">border: 1px solid black;
-border-radius: 1% 20% / 10% 40%;
+border-radius: 10px;
 background: #f4f4f5;
-font-size: 14px;</string>
+font-size: 16px;</string>
     </property>
     <property name="readOnly">
      <bool>true</bool>
@@ -91,7 +117,7 @@ font-size: 14px;</string>
    <widget class="QComboBox" name="fromLang">
     <property name="geometry">
      <rect>
-      <x>50</x>
+      <x>55</x>
       <y>20</y>
       <width>200</width>
       <height>30</height>
@@ -135,7 +161,7 @@ font-size: 14px;</string>
    <widget class="QComboBox" name="toLang">
     <property name="geometry">
      <rect>
-      <x>710</x>
+      <x>845</x>
       <y>20</y>
       <width>200</width>
       <height>30</height>
@@ -219,10 +245,10 @@ font-size: 14px;</string>
    <widget class="QLabel" name="reverseTranslate">
     <property name="geometry">
      <rect>
-      <x>470</x>
-      <y>25</y>
-      <width>25</width>
-      <height>25</height>
+      <x>540</x>
+      <y>20</y>
+      <width>30</width>
+      <height>30</height>
      </rect>
     </property>
     <property name="cursor">
@@ -259,10 +285,10 @@ font-size: 14px;</string>
    <widget class="QLabel" name="clearInput">
     <property name="geometry">
      <rect>
-      <x>450</x>
+      <x>500</x>
       <y>70</y>
-      <width>15</width>
-      <height>15</height>
+      <width>30</width>
+      <height>30</height>
      </rect>
     </property>
     <property name="cursor">
@@ -281,11 +307,13 @@ font-size: 14px;</string>
      <string notr="true">#clearInput {
 	background-repeat: no-repeat;
  	border-radius:  5px;
-	background: #f4f4f5;
+	background: none;
 	opacity: 0.5;
+	padding: 7px;
 }
 #clearInput:hover  {
 	opacity: 1;
+	background: #dedddd;
 }</string>
     </property>
     <property name="text">
@@ -301,10 +329,10 @@ font-size: 14px;</string>
    <widget class="QLabel" name="copyTranslate">
     <property name="geometry">
      <rect>
-      <x>885</x>
-      <y>310</y>
-      <width>15</width>
-      <height>15</height>
+      <x>1005</x>
+      <y>400</y>
+      <width>30</width>
+      <height>30</height>
      </rect>
     </property>
     <property name="cursor">
@@ -324,10 +352,12 @@ font-size: 14px;</string>
 	background-repeat: no-repeat;
  	border-radius:  5px;
 	opacity: 0.5;
-	background: #f4f4f5;
+	background: none;
+	padding: 7px;
 }
 #copyTranslate:hover  {
 	opacity: 1;
+	background: #dedddd;
 }</string>
     </property>
     <property name="frameShape">
@@ -349,8 +379,8 @@ font-size: 14px;</string>
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>925</width>
-     <height>27</height>
+     <width>1060</width>
+     <height>22</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuMenu">
