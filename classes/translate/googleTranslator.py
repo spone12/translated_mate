@@ -18,7 +18,7 @@ class GoogleTranslator(TranslateInterface):
     def translate(self, text: str, toLang: str, fromLang = 'auto') -> str:
         
         translatedText = ''
-      
+
         if len(text) > 5000:
 
             # Chunking elements of large text

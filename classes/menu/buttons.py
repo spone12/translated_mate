@@ -1,5 +1,6 @@
 from PyQt6.QtWidgets import QApplication
 from classes.translate.googleTranslator import *
+from classes.translate.deeplTranslator import *
 
 
 class Buttons():
@@ -50,7 +51,13 @@ class Buttons():
         if self.ui.actionLeaveTheFormatting.isChecked():
             text = self.ui.inputBox.toHtml()
 
-        translated = GoogleTranslator().translate(
+        match self.ui.currentTranslator:
+            case 'Google':
+                translator = GoogleTranslator()
+            case 'Deepl':
+                translator = DeeplTranslator()
+        
+        translated = translator.translate(
             text, 
             self.ui.loadLang.getKeyLang(self.ui.toLang.currentText()),
             self.ui.loadLang.getKeyLang(self.ui.fromLang.currentText())

@@ -1,5 +1,5 @@
 # Translate mate
-# Version 0.4
+# Version 0.6
 import sys
 import ui
 from PyQt6 import QtCore, QtGui, QtWidgets
@@ -20,13 +20,14 @@ class TranslateMate(QtWidgets.QMainWindow, QtWidgets.QWidget, ui.Ui_MainWindow):
         super(self.__class__, self).__init__()
         self.setupUi(self)
         self.setWindowIcon(QtGui.QIcon('appico.ico'))
+        self.currentTranslator = 'Google'
         
         self.loadLang = LoadingLangs(self)
         self.menu = Menu(self)
         self.buttons = Buttons(self)
 
         self.programEvents()
-   
+        
         
     def programEvents(self) -> None:
         """
