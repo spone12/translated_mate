@@ -29,7 +29,7 @@ class LoadingLangs():
         self.ui.currentTranslator = event.text()
         self.loadLangArrays(event.text())
         
-    def loadLangArrays(self, translator = 'Google') -> None:
+    def loadLangArrays(self, translator = 'Deepl') -> None:
         """
             Change of translator and loading of language arrays
         """

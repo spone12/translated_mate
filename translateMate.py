@@ -20,7 +20,7 @@ class TranslateMate(QtWidgets.QMainWindow, QtWidgets.QWidget, ui.Ui_MainWindow):
         super(self.__class__, self).__init__()
         self.setupUi(self)
         self.setWindowIcon(QtGui.QIcon('appico.ico'))
-        self.currentTranslator = 'Google'
+        self.currentTranslator = 'Deepl'
         
         self.loadLang = LoadingLangs(self)
         self.menu = Menu(self)
