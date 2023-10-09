@@ -15,6 +15,16 @@ class Buttons():
         self.ui.translateBox.clear()
         self.ui.inputBox.clear()
 
+    def saveTranslationWindow(self, eve) -> None:
+        """
+            Change window
+        """
+                
+        if self.ui.stackedWidget.currentIndex() == 0:
+            self.ui.stackedWidget.setCurrentIndex(1)
+        else:
+            self.ui.stackedWidget.setCurrentIndex(0)
+
     def copyToClipboard(self, eve) -> None:
         
         QApplication.clipboard().setText(self.ui.translateBox.toPlainText())
@@ -50,7 +60,7 @@ class Buttons():
         #if leave the formatting
         if self.ui.actionLeaveTheFormatting.isChecked():
             text = self.ui.inputBox.toHtml()
-
+        
         match self.ui.currentTranslator:
             case 'Google':
                 translator = GoogleTranslator()

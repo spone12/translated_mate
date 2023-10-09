@@ -20,7 +20,7 @@ class TranslateMate(QtWidgets.QMainWindow, QtWidgets.QWidget, ui.Ui_MainWindow):
         super(self.__class__, self).__init__()
         self.setupUi(self)
         self.setWindowIcon(QtGui.QIcon('appico.ico'))
-        self.currentTranslator = 'Deepl'
+        self.currentTranslator = 'Google'
         
         self.loadLang = LoadingLangs(self)
         self.menu = Menu(self)
@@ -37,6 +37,7 @@ class TranslateMate(QtWidgets.QMainWindow, QtWidgets.QWidget, ui.Ui_MainWindow):
         self.reverseTranslate.mousePressEvent = self.buttons.reverseTranslations
         self.clearInput.mousePressEvent = self.buttons.clearTranslate
         self.copyTranslate.mousePressEvent = self.buttons.copyToClipboard
+        self.saveTranslationWindow.mousePressEvent = self.buttons.saveTranslationWindow
         self.actionExit.triggered.connect(self.menu.exitProgramm)
         self.chooseTranslator.triggered.connect(self.loadLang.chooseTranslator)
 
