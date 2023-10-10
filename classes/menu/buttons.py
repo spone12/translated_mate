@@ -1,7 +1,7 @@
 from PyQt6.QtWidgets import QApplication
 from classes.translate.googleTranslator import *
 from classes.translate.deeplTranslator import *
-from classes.windows.saveTranslation import *
+from classes.windows.savedTranslation import *
 
 
 class Buttons():
@@ -21,7 +21,7 @@ class Buttons():
            Window change startup
         """
 
-        SaveTranslationWindow(self.ui).changeWindow()    
+        self.ui.db.changeWindow()    
 
     def copyToClipboard(self, eve) -> None:
         
@@ -77,6 +77,6 @@ class Buttons():
            Save translated text to DB
         """
 
-        SaveTranslationWindow(self.ui).insertTranslate(
+        self.ui.db.insertTranslate(
             self.ui.fromLang.currentText(), self.ui.toLang.currentText(), self.ui.translateBox.toPlainText()
         )   

@@ -3,20 +3,20 @@ import sqlite3
 from classes.logger import *
 
 
-class SaveTranslationWindow():
+class SavedTranslationWindow():
     """
-        Save translation window class
+        Translation save window DB class
     """
 
     def __init__(self, ui):
         self.ui = ui
-        self.db = sqlite3.connect('translate.db')
-        self.curs = self.db.cursor()
+        self.conn = sqlite3.connect('translate.db')
+        self.curs = self.conn.cursor()
         self.createTranslateTable()
 
     def __del__(self):
-        self.db.commit()
-        self.db.close()
+        self.conn.commit()
+        self.conn.close()
 
     def createTranslateTable(self) -> None:
         self.curs.execute('''
@@ -30,9 +30,9 @@ class SaveTranslationWindow():
             )
         ''')
     
-    def selectTranslate(self, where = None):
+    def getSavedTranslate(self, where = None):
         """
-            Select Row
+            Get saved translated rows
         """
 
         try:
