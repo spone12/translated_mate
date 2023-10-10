@@ -1,6 +1,7 @@
 from PyQt6.QtWidgets import QApplication
 from classes.translate.googleTranslator import *
 from classes.translate.deeplTranslator import *
+from classes.windows.saveTranslation import *
 
 
 class Buttons():
@@ -17,13 +18,10 @@ class Buttons():
 
     def saveTranslationWindow(self, eve) -> None:
         """
-            Change window
+           Window change startup
         """
-                
-        if self.ui.stackedWidget.currentIndex() == 0:
-            self.ui.stackedWidget.setCurrentIndex(1)
-        else:
-            self.ui.stackedWidget.setCurrentIndex(0)
+
+        SaveTranslationWindow(self.ui).changeWindow()    
 
     def copyToClipboard(self, eve) -> None:
         

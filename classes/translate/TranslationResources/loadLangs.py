@@ -11,7 +11,7 @@ class LoadingLangs():
 
     def __init__(self, ui):
         self.ui = ui
-        self.loadLangArrays()
+        self.loadLangArrays(self.ui.currentTranslator)
         
     def chooseTranslator(self, event):
         """

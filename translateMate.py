@@ -25,7 +25,7 @@ class TranslateMate(QtWidgets.QMainWindow, QtWidgets.QWidget, ui.Ui_MainWindow):
         self.loadLang = LoadingLangs(self)
         self.menu = Menu(self)
         self.buttons = Buttons(self)
-
+        
         self.programEvents()
         
         

@@ -9,8 +9,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1082</width>
-    <height>494</height>
+    <width>1096</width>
+    <height>469</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -72,99 +72,11 @@ QScrollBar::sub-line:vertical {
 }</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QComboBox" name="fromLang">
-    <property name="geometry">
-     <rect>
-      <x>60</x>
-      <y>20</y>
-      <width>200</width>
-      <height>30</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">#fromLang {
-    font: 11pt Fira Sans Condensed;     
-    background-color: #2e2e2e;
-    border-top: 0px solid #3e3e3e;
-    border-left: 0px solid #3e3e3e;
-    border-right: 0px solid #3e3e3e;
-    border-bottom: 2px solid #3e3e3e;
-    padding: 5%;
-    max-height: 30px;
-    min-width: 140px;
-    color: white;
-    selection-background-color: #5e5e5e;
-	border-radius: 2px;
-}
-#fromLang:drop-down {
-    border: none;
-}
-#fromLang:down-arrow {
-    image: url(img/downButton.png);
-    width: 25px;
-    height: 25px;
-    border-width: 0px;
-    padding-right: 10px;
-}
-
-#fromLang:pressed {
-    position: relative;
-    top: 1px; left: 1px;
-}</string>
-    </property>
-    <property name="editable">
-     <bool>true</bool>
-    </property>
-   </widget>
-   <widget class="QComboBox" name="toLang">
-    <property name="geometry">
-     <rect>
-      <x>870</x>
-      <y>20</y>
-      <width>200</width>
-      <height>30</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">#toLang {
-    font: 11pt Fira Sans Condensed;     
-    background-color: #2e2e2e;
-    border-top: 0px solid #3e3e3e;
-    border-left: 0px solid #3e3e3e;
-    border-right: 0px solid #3e3e3e;
-    border-bottom: 2px solid #3e3e3e;
-    padding: 5%;
-    max-height: 30px;
-    min-width: 140px;
-    color: white;
-    selection-background-color: #5e5e5e;
-	border-radius: 2px;
-}
-#toLang:drop-down {
-    border: none;
-}
-#toLang:down-arrow {
-    image: url(img/downButton.png);
-    width: 25px;
-    height: 25px;
-    border-width: 0px;
-    padding-right: 10px;
-}
-
-#toLang:pressed {
-    position: relative;
-    top: 1px; left: 1px;
-}</string>
-    </property>
-    <property name="editable">
-     <bool>true</bool>
-    </property>
-   </widget>
    <widget class="QLabel" name="translateLabel">
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>90</y>
+      <y>60</y>
       <width>40</width>
       <height>40</height>
      </rect>
@@ -200,64 +112,24 @@ QScrollBar::sub-line:vertical {
      <bool>true</bool>
     </property>
    </widget>
-   <widget class="QLabel" name="reverseTranslate">
-    <property name="geometry">
-     <rect>
-      <x>550</x>
-      <y>20</y>
-      <width>30</width>
-      <height>30</height>
-     </rect>
-    </property>
-    <property name="cursor">
-     <cursorShape>PointingHandCursor</cursorShape>
-    </property>
-    <property name="focusPolicy">
-     <enum>Qt::NoFocus</enum>
-    </property>
-    <property name="toolTip">
-     <string>Reverse translate</string>
-    </property>
-    <property name="autoFillBackground">
-     <bool>false</bool>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">#reverseTranslate {
-	background-repeat: no-repeat;
- 	border-radius:  5px;
-}
-#reverseTranslate:hover  {
-	background:  #fff6f7;
-}</string>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-    <property name="pixmap">
-     <pixmap>img/reverseTranslate.png</pixmap>
-    </property>
-    <property name="scaledContents">
-     <bool>true</bool>
-    </property>
-   </widget>
    <widget class="QStackedWidget" name="stackedWidget">
     <property name="geometry">
      <rect>
-      <x>60</x>
-      <y>60</y>
-      <width>1011</width>
-      <height>391</height>
+      <x>50</x>
+      <y>0</y>
+      <width>1031</width>
+      <height>451</height>
      </rect>
     </property>
     <property name="currentIndex">
      <number>0</number>
     </property>
-    <widget class="QWidget" name="MainTranslate" native="true">
+    <widget class="QWidget" name="MainTranslate">
      <widget class="QTextEdit" name="inputBox">
       <property name="geometry">
        <rect>
-        <x>0</x>
-        <y>10</y>
+        <x>20</x>
+        <y>50</y>
         <width>500</width>
         <height>380</height>
        </rect>
@@ -279,8 +151,8 @@ font-size: 16px;
       </property>
       <property name="geometry">
        <rect>
-        <x>510</x>
-        <y>10</y>
+        <x>530</x>
+        <y>50</y>
         <width>500</width>
         <height>380</height>
        </rect>
@@ -298,8 +170,8 @@ font-size: 16px;</string>
      <widget class="QLabel" name="copyTranslate">
       <property name="geometry">
        <rect>
-        <x>960</x>
-        <y>340</y>
+        <x>970</x>
+        <y>380</y>
         <width>30</width>
         <height>30</height>
        </rect>
@@ -345,8 +217,8 @@ font-size: 16px;</string>
      <widget class="QLabel" name="clearInput">
       <property name="geometry">
        <rect>
-        <x>460</x>
-        <y>20</y>
+        <x>470</x>
+        <y>60</y>
         <width>30</width>
         <height>30</height>
        </rect>
@@ -386,14 +258,153 @@ font-size: 16px;</string>
        <bool>true</bool>
       </property>
      </widget>
+     <widget class="QComboBox" name="fromLang">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>10</y>
+        <width>200</width>
+        <height>30</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">#fromLang {
+    font: 11pt Fira Sans Condensed;     
+    background-color: #2e2e2e;
+    border-top: 0px solid #3e3e3e;
+    border-left: 0px solid #3e3e3e;
+    border-right: 0px solid #3e3e3e;
+    border-bottom: 2px solid #3e3e3e;
+    padding: 5%;
+    max-height: 30px;
+    min-width: 140px;
+    color: white;
+    selection-background-color: #5e5e5e;
+	border-radius: 2px;
+}
+#fromLang:drop-down {
+    border: none;
+}
+#fromLang:down-arrow {
+    image: url(img/downButton.png);
+    width: 25px;
+    height: 25px;
+    border-width: 0px;
+    padding-right: 10px;
+}
+
+#fromLang:pressed {
+    position: relative;
+    top: 1px; left: 1px;
+}</string>
+      </property>
+      <property name="editable">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QLabel" name="reverseTranslate">
+      <property name="geometry">
+       <rect>
+        <x>510</x>
+        <y>10</y>
+        <width>30</width>
+        <height>30</height>
+       </rect>
+      </property>
+      <property name="cursor">
+       <cursorShape>PointingHandCursor</cursorShape>
+      </property>
+      <property name="focusPolicy">
+       <enum>Qt::NoFocus</enum>
+      </property>
+      <property name="toolTip">
+       <string>Reverse translate</string>
+      </property>
+      <property name="autoFillBackground">
+       <bool>false</bool>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">#reverseTranslate {
+	background-repeat: no-repeat;
+ 	border-radius:  5px;
+}
+#reverseTranslate:hover  {
+	background:  #fff6f7;
+}</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="pixmap">
+       <pixmap>img/reverseTranslate.png</pixmap>
+      </property>
+      <property name="scaledContents">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="toLang">
+      <property name="geometry">
+       <rect>
+        <x>820</x>
+        <y>10</y>
+        <width>200</width>
+        <height>30</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">#toLang {
+    font: 11pt Fira Sans Condensed;     
+    background-color: #2e2e2e;
+    border-top: 0px solid #3e3e3e;
+    border-left: 0px solid #3e3e3e;
+    border-right: 0px solid #3e3e3e;
+    border-bottom: 2px solid #3e3e3e;
+    padding: 5%;
+    max-height: 30px;
+    min-width: 140px;
+    color: white;
+    selection-background-color: #5e5e5e;
+	border-radius: 2px;
+}
+#toLang:drop-down {
+    border: none;
+}
+#toLang:down-arrow {
+    image: url(img/downButton.png);
+    width: 25px;
+    height: 25px;
+    border-width: 0px;
+    padding-right: 10px;
+}
+
+#toLang:pressed {
+    position: relative;
+    top: 1px; left: 1px;
+}</string>
+      </property>
+      <property name="editable">
+       <bool>true</bool>
+      </property>
+     </widget>
     </widget>
-    <widget class="QWidget" name="SaveTranslate" native="true"/>
+    <widget class="QWidget" name="SaveTranslate">
+     <widget class="QTableView" name="tableView">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>30</y>
+        <width>911</width>
+        <height>381</height>
+       </rect>
+      </property>
+     </widget>
+    </widget>
    </widget>
    <widget class="QLabel" name="saveTranslationWindow">
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>140</y>
+      <y>110</y>
       <width>40</width>
       <height>40</height>
      </rect>
@@ -435,8 +446,8 @@ font-size: 16px;</string>
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1082</width>
-     <height>22</height>
+     <width>1096</width>
+     <height>20</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuMenu">
