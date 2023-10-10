@@ -71,3 +71,12 @@ class Buttons():
             self.ui.loadLang.getKeyLang(self.ui.fromLang.currentText())
         )
         self.ui.translateBox.insertHtml(translated)
+
+    def saveTranslatedText(self, eve) -> None:
+        """
+           Save translated text to DB
+        """
+
+        SaveTranslationWindow(self.ui).insertTranslate(
+            self.ui.fromLang.currentText(), self.ui.toLang.currentText(), self.ui.translateBox.toPlainText()
+        )   

@@ -215,6 +215,27 @@ class Ui_MainWindow(object):
 "}")
         self.toLang.setEditable(True)
         self.toLang.setObjectName("toLang")
+        self.saveTranslatedText = QtWidgets.QLabel(parent=self.MainTranslate)
+        self.saveTranslatedText.setGeometry(QtCore.QRect(940, 380, 30, 30))
+        self.saveTranslatedText.setCursor(QtGui.QCursor(QtCore.Qt.CursorShape.PointingHandCursor))
+        self.saveTranslatedText.setFocusPolicy(QtCore.Qt.FocusPolicy.NoFocus)
+        self.saveTranslatedText.setAutoFillBackground(False)
+        self.saveTranslatedText.setStyleSheet("#saveTranslatedText {\n"
+"    background-repeat: no-repeat;\n"
+"     border-radius:  5px;\n"
+"    opacity: 0.5;\n"
+"    background: none;\n"
+"    padding: 7px;\n"
+"}\n"
+"#saveTranslatedText:hover  {\n"
+"    opacity: 1;\n"
+"    background: #dedddd;\n"
+"}")
+        self.saveTranslatedText.setFrameShape(QtWidgets.QFrame.Shape.NoFrame)
+        self.saveTranslatedText.setText("")
+        self.saveTranslatedText.setPixmap(QtGui.QPixmap("img/saveTranslatedText.png"))
+        self.saveTranslatedText.setScaledContents(True)
+        self.saveTranslatedText.setObjectName("saveTranslatedText")
         self.stackedWidget.addWidget(self.MainTranslate)
         self.SaveTranslate = QtWidgets.QWidget()
         self.SaveTranslate.setObjectName("SaveTranslate")
@@ -285,6 +306,7 @@ class Ui_MainWindow(object):
         self.copyTranslate.setToolTip(_translate("MainWindow", "Copy translate to clipboard"))
         self.clearInput.setToolTip(_translate("MainWindow", "Clear input and translated text"))
         self.reverseTranslate.setToolTip(_translate("MainWindow", "Reverse translate"))
+        self.saveTranslatedText.setToolTip(_translate("MainWindow", "Save translated text"))
         self.saveTranslationWindow.setToolTip(_translate("MainWindow", "Save translation window"))
         self.menuMenu.setTitle(_translate("MainWindow", "Menu"))
         self.menuTranslate.setTitle(_translate("MainWindow", "Translate"))
