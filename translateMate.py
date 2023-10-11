@@ -27,8 +27,7 @@ class TranslateMate(QtWidgets.QMainWindow, QtWidgets.QWidget, ui.Ui_MainWindow):
         self.menu = Menu(self)
         self.buttons = Buttons(self)
         self.db = SavedTranslationWindow(self)
-        print(self.db.getSavedTranslate())
-        
+
         self.programEvents()
         
         

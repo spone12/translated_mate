@@ -77,6 +77,12 @@ class Buttons():
            Save translated text to DB
         """
 
+        if self.ui.translateBox.toPlainText() == '':
+            return None
+        
         self.ui.db.insertTranslate(
-            self.ui.fromLang.currentText(), self.ui.toLang.currentText(), self.ui.translateBox.toPlainText()
+            self.ui.fromLang.currentText(), 
+            self.ui.toLang.currentText(), 
+            self.ui.inputBox.toPlainText(),
+            self.ui.translateBox.toPlainText()
         )   

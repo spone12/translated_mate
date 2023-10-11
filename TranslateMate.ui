@@ -435,12 +435,12 @@ font-size: 16px;</string>
      </widget>
     </widget>
     <widget class="QWidget" name="SaveTranslate">
-     <widget class="QTableView" name="tableView">
+     <widget class="QTableWidget" name="savedTranslateWidget">
       <property name="geometry">
        <rect>
         <x>30</x>
         <y>30</y>
-        <width>911</width>
+        <width>1001</width>
         <height>381</height>
        </rect>
       </property>
@@ -494,7 +494,7 @@ font-size: 16px;</string>
      <x>0</x>
      <y>0</y>
      <width>1096</width>
-     <height>20</height>
+     <height>22</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuMenu">
