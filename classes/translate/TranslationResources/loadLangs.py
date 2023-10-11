@@ -34,16 +34,10 @@ class LoadingLangs():
             Change of translator and loading of language arrays
         """
 
-        languageValues = []
+        languageValues = list(self.matchTranslatorLang().values())
 
         self.ui.fromLang.clear()
         self.ui.toLang.clear()
-        
-        match translator:
-            case 'Google':
-                languageValues = list(googleLanguages.values())
-            case 'Deepl':
-                languageValues = list(deeplLanguages.values())
 
         self.ui.fromLang.addItems(languageValues)
         self.ui.fromLang.setCurrentIndex(languageValues.index('English'))
@@ -59,10 +53,22 @@ class LoadingLangs():
         """
             Get country code by full language name
         """
-
-        for k, v in googleLanguages.items():
+        
+        languagesArray = self.matchTranslatorLang().items()
+        for k, v in languagesArray:
             if (isinstance(v, list) and value in v) or value == v:
                 return k
         else:
             Logger().log(self.__class__.__name__, f"Cant find language: {value}")
             return 'auto'
+
+    def matchTranslatorLang(self):
+        
+        match self.ui.currentTranslator:
+            case 'Google':
+                languagesArray = googleLanguages
+            case 'Deepl':
+                languagesArray = deeplLanguages
+
+        return languagesArray
+    

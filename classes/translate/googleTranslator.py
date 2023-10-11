@@ -15,6 +15,8 @@ class GoogleTranslator(TranslateInterface):
         Google translate class
     """
 
+    _baseUrl = "https://translate.google.com/m?hl=ru&sl={0}&tl={1}&ie=UTF-8&prev=_m&q={2}"
+
     def translate(self, text: str, toLang: str, fromLang = 'auto') -> str:
         
         translatedText = ''
@@ -25,14 +27,12 @@ class GoogleTranslator(TranslateInterface):
             chunkedText = wrap(text, 5000)
 
             for currentTextBlock in chunkedText:
-                _baseUrl       = "https://translate.google.com/m?hl=ru&sl={0}&tl={1}&ie=UTF-8&prev=_m&q={2}"
-                formatedUrl    = _baseUrl.format(fromLang, toLang, urllib.parse.quote(currentTextBlock, safe = ""))
+                formatedUrl    = self._baseUrl.format(fromLang, toLang, urllib.parse.quote(currentTextBlock, safe = ""))
                 translatedText += self.translateIternal(formatedUrl)
                 time.sleep(0.300)
 
         else:
-            _baseUrl       = "https://translate.google.com/m?hl=ru&sl={0}&tl={1}&ie=UTF-8&prev=_m&q={2}"
-            formatedUrl    = _baseUrl.format(fromLang, toLang, urllib.parse.quote(text, safe = ""))
+            formatedUrl    = self._baseUrl.format(fromLang, toLang, urllib.parse.quote(text, safe = ""))
             translatedText = self.translateIternal(formatedUrl)
 
         return translatedText

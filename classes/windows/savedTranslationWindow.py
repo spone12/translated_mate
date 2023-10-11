@@ -1,5 +1,4 @@
 # Save translation window
-import sqlite3
 from classes.logger import *
 from PyQt6 import QtWidgets
 from PyQt6.QtWidgets import QStyledItemDelegate, QPushButton
