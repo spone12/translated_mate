@@ -236,7 +236,34 @@ class Ui_MainWindow(object):
         self.SaveTranslate.setObjectName("SaveTranslate")
         self.savedTranslateWidget = QtWidgets.QTableWidget(parent=self.SaveTranslate)
         self.savedTranslateWidget.setGeometry(QtCore.QRect(30, 30, 1001, 381))
-        self.savedTranslateWidget.setStyleSheet("QTableWidget {border: transparent;}")
+        self.savedTranslateWidget.setStyleSheet("QTableWidget {\n"
+"    border: transparent;\n"
+"}\n"
+"\n"
+"QTableWidget::item {\n"
+"    background: #fff5e0;\n"
+"    color: #000000;\n"
+"    font-size: 16px;\n"
+"}\n"
+"\n"
+"QTableWidget::item:focus\n"
+"{\n"
+"   background-color: #b8b6b6; \n"
+"    background: #b8b6b6;\n"
+"   selection-background-color: #b8b6b6;\n"
+"}\n"
+"\n"
+"QHeaderView::section\n"
+"{\n"
+"    border-radius: 3px;\n"
+"    text-align: center;\n"
+"    font-weight: bold;\n"
+"    spacing: 1px;\n"
+"    background-color: white;\n"
+"    color: black;\n"
+"    border: 1px solid #676767;\n"
+"    font-size:12px;\n"
+"}")
         self.savedTranslateWidget.setObjectName("savedTranslateWidget")
         self.savedTranslateWidget.setColumnCount(0)
         self.savedTranslateWidget.setRowCount(0)

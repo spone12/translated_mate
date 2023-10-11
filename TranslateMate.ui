@@ -439,7 +439,34 @@ font-size: 16px;</string>
        </rect>
       </property>
       <property name="styleSheet">
-       <string notr="true">QTableWidget {border: transparent;}</string>
+       <string notr="true">QTableWidget {
+	border: transparent;
+}
+
+QTableWidget::item {
+	background: #fff5e0;
+	color: #000000;
+	font-size: 16px;
+}
+
+QTableWidget::item:focus
+{
+   background-color: #b8b6b6; 
+	background: #b8b6b6;
+   selection-background-color: #b8b6b6;
+}
+
+QHeaderView::section
+{
+	border-radius: 3px;
+	text-align: center;
+	font-weight: bold;
+	spacing: 1px;
+	background-color: white;
+	color: black;
+	border: 1px solid #676767;
+	font-size:12px;
+}</string>
       </property>
      </widget>
     </widget>
