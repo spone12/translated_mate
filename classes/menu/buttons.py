@@ -1,7 +1,6 @@
 from PyQt6.QtWidgets import QApplication
 from classes.translate.googleTranslator import *
 from classes.translate.deeplTranslator import *
-from classes.windows.savedTranslation import *
 
 
 class Buttons():
@@ -21,7 +20,7 @@ class Buttons():
            Window change startup
         """
 
-        self.ui.db.changeWindow()    
+        self.ui.savedTranslation.changeWindow()    
 
     def copyToClipboard(self, eve) -> None:
         

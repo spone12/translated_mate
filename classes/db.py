@@ -1,16 +1,12 @@
 # Save translation window
 import sqlite3
 from classes.logger import *
-from PyQt6 import QtWidgets
 
 
-class SavedTranslationWindow():
+class DB():
     """
-        Translation save window DB class
+        DB class
     """
-
-    columnsWidth = [120, 120, 345, 345, 50]
-    headerLabels = ['From', 'To', 'Native', 'Translate', 'Delete']
 
     def __init__(self, ui):
         self.ui = ui
@@ -21,29 +17,12 @@ class SavedTranslationWindow():
     def __del__(self):
         self.conn.commit()
         self.conn.close()
-    
-    def renderSavedTable(self) -> None:
-        """
-            Render a saved translation
-        """
-
-        savedTranslations = self.getSavedTranslate()
-        self.ui.savedTranslateWidget.setRowCount(len(savedTranslations))
-        self.ui.savedTranslateWidget.setColumnCount(5)
-
-        self.ui.savedTranslateWidget.setHorizontalHeaderLabels(self.headerLabels)
-        for ind, width in enumerate(self.columnsWidth):
-            self.ui.savedTranslateWidget.setColumnWidth(ind, width)
-
-        rowIndex = 0
-        for translation in savedTranslations:
-            for j in range (1, 5):
-                self.ui.savedTranslateWidget.setItem(
-                    rowIndex, (j - 1), QtWidgets.QTableWidgetItem(translation[j])
-                )
-            rowIndex += 1
 
     def createTranslateTable(self) -> None:
+        """
+            Create translate table IF not exist
+        """
+        
         self.curs.execute('''
             CREATE TABLE IF NOT EXISTS Translate (
                 id INTEGER PRIMARY KEY,
@@ -103,15 +82,3 @@ class SavedTranslationWindow():
            self.curs.execute('DELETE FROM Translate WHERE id = ?', (id))
         except Exception as err:
             Logger().log(self.__class__.__name__, f"Delete error: {err}")        
-
-    def changeWindow(self) -> None:
-        """
-            Change the window to "saved translations", or back to translator
-        """
-        
-        if self.ui.stackedWidget.currentIndex() == 0:
-            
-            self.renderSavedTable()
-            self.ui.stackedWidget.setCurrentIndex(1)
-        else:
-            self.ui.stackedWidget.setCurrentIndex(0)

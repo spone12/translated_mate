@@ -8,7 +8,8 @@ from classes.translate.googleTranslator import *
 from classes.translate.TranslationResources.loadLangs import LoadingLangs
 from classes.menu.menu import Menu
 from classes.menu.buttons import Buttons
-from classes.windows.savedTranslation import *
+from classes.windows.savedTranslationWindow import *
+from classes.db import *
 
 
 class TranslateMate(QtWidgets.QMainWindow, QtWidgets.QWidget, ui.Ui_MainWindow):
@@ -26,7 +27,8 @@ class TranslateMate(QtWidgets.QMainWindow, QtWidgets.QWidget, ui.Ui_MainWindow):
         self.loadLang = LoadingLangs(self)
         self.menu = Menu(self)
         self.buttons = Buttons(self)
-        self.db = SavedTranslationWindow(self)
+        self.db = DB(self)
+        self.savedTranslation = SavedTranslationWindow(self)
 
         self.programEvents()
         
