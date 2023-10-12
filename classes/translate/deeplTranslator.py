@@ -10,6 +10,7 @@ import random
 import calendar
 import json
 import datetime
+import re
 
 
 class DeeplTranslator(TranslateInterface):
@@ -17,7 +18,8 @@ class DeeplTranslator(TranslateInterface):
         Deepl translate class
     """
 
-    deeplApiUrl = 'https://www2.deepl.com/jsonrpc'
+    regex       = "(\S.+?([.!?♪。]|$))(?=\s+|$)"
+    deeplApiUrl = 'https://www2.deepl.com/jsonrpc?method=LMT_handle_jobs'
     _DeepLId    = 0
 
     def translate(self, text: str, toLang: str, fromLang = 'auto') -> str:
@@ -49,36 +51,65 @@ class DeeplTranslator(TranslateInterface):
             'Cache-Control': 'no-cache',
             'Accept-Language': 'en-US;q=0.5,en;q=0.3',
             'DNT': '1',
-            'TE': 'Trailers'
+            'TE': 'Trailers',
+            'User-Agent': 'Opera/9.80 (Android; Opera Mini/11.0.1912/37.7549; U; pl) Presto/2.12.423 Version/12.16'
         }
 
+        matchSentences = re.findall(self.regex, text)
+        jobs = []
+
+        # Generate Jobs
+        lengthMatches = len(matchSentences)
+        for k, sentence in enumerate(matchSentences):
+
+            afterString = []
+            if (k + 1) < lengthMatches:
+                afterString.append(matchSentences[k + 1][0])
+
+            beforeSentences = []
+            if k > 0:
+                for n in range(k):
+                    beforeSentences.append(matchSentences[n][0])
+
+            job = {
+                    "kind": "default",
+                    "preferred_num_beams": 4,
+                    "quality": "fast",
+                    "raw_en_context_after": afterString,
+                    "raw_en_context_before": beforeSentences,
+                    "sentences": [
+                        {
+                            "id":  (k + 1),
+                            "prefix": "",
+                            "text": sentence[0]
+                        }
+                    ]
+                }
+
+            jobs.append(job)
+        
+        timestamp = calendar.timegm(time.gmtime()) * 1000
         body = {
             "id": self._DeepLId,
             "jsonrpc": "2.0",
             "method": "LMT_handle_jobs",
             "params": {
-                "jobs": [
-                    {
-                        "kind": "default",
-                        "preferred_num_beams": 4,
-                        "quality": "fast",
-                        "raw_en_context_after": [],
-                        "raw_en_context_before": [],
-                        "sentences": [
-                            {
-                                "id": 0,
-                                "prefix": "",
-                                "text": text
-                            }
-                        ]
-                    }
-                ],
+                "commonJobParams": {
+                    "browserType": 1,
+                    "mode": "translate",
+                    "textType": "plaintext"
+                },
+                "jobs": jobs,
                 "lang": {
+                    "preference": {
+                        "default": "default",
+                        "weight": {}
+                    },
                     "source_lang_user_selected": fromLang.upper(),
                     "target_lang": toLang.upper()
                 },
-                "priority": -1,
-                "timestamp": calendar.timegm(time.gmtime())
+                "priority": 1,
+                "timestamp": timestamp
             }
         }
 
