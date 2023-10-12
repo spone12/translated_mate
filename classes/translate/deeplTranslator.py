@@ -105,16 +105,16 @@ class DeeplTranslator(TranslateInterface):
                         "default": "default",
                         "weight": {}
                     },
-                    "source_lang_user_selected": fromLang.upper(),
+                    "source_lang_computed": fromLang.upper(),
                     "target_lang": toLang.upper()
                 },
-                "priority": 1,
+                "priority": -1,
                 "timestamp": timestamp
             }
         }
 
-        parsedAnswer = ''
-
+        parsedAnswer = ""
+       
         try:
             request = requests.post(self.deeplApiUrl, data=json.dumps(body), headers = headers)
             request.raise_for_status()
@@ -124,9 +124,12 @@ class DeeplTranslator(TranslateInterface):
             Logger().log(self.__class__.__name__, f"Other error occurred: {err}")
         else:
 
-            anserDecode = json.loads(request.text)
-            for item in anserDecode['result']['translations'][0]['beams']:
-                parsedAnswer = item['sentences'][0]['text']
-                break
+            answerDecode = json.loads(request.text)
+            if not answerDecode['result']['translations']:
+                Logger().log(self.__class__.__name__, f"Deepl strange response;")
+                Logger().log(self.__class__.__name__, f"Deepl body is null!")
+
+            for trans in answerDecode['result']['translations']:
+                parsedAnswer += trans['beams'][0]['sentences'][0]['text']
         
         return parsedAnswer
