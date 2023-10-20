@@ -9,8 +9,8 @@ class SavedTranslationWindow():
         Translation window
     """
 
-    columnsWidth = [100, 100, 350, 350, 50]
-    headerLabels = ['From', 'To', 'Native', 'Translate', 'Delete']
+    columnsWidth = [50, 100, 100, 350, 350, 50]
+    headerLabels = ['id', 'From', 'To', 'Native', 'Translate', 'Delete']
 
     def __init__(self, ui):
         self.ui = ui
@@ -22,9 +22,12 @@ class SavedTranslationWindow():
 
         savedTranslations = self.ui.db.getSavedTranslate()
 
+        # Disable vertical header
+        self.ui.savedTranslateWidget.verticalHeader().hide()
+
         # Set row and columns count
         self.ui.savedTranslateWidget.setRowCount(len(savedTranslations))
-        self.ui.savedTranslateWidget.setColumnCount(5)
+        self.ui.savedTranslateWidget.setColumnCount(6)
 
         # Set name header columns
         self.ui.savedTranslateWidget.setHorizontalHeaderLabels(self.headerLabels)
@@ -41,15 +44,14 @@ class SavedTranslationWindow():
         # Render table
         rowIndex = 0
         for translation in savedTranslations:
-            for j in range (1, 6):
-      
+            for j in range (0, 6):
                 if j == 5:
                     deleteButton = QPushButton("X")
-                    self.ui.savedTranslateWidget.setCellWidget(rowIndex, (j - 1), deleteButton)
+                    self.ui.savedTranslateWidget.setCellWidget(rowIndex, (j), deleteButton)
                     deleteButton.clicked.connect(self.deleteRow)
                 else:
                     self.ui.savedTranslateWidget.setItem(
-                        rowIndex, (j - 1), QtWidgets.QTableWidgetItem(translation[j])
+                        rowIndex, (j), QtWidgets.QTableWidgetItem(str(translation[j]))
                     )
             rowIndex += 1 
 
@@ -61,8 +63,9 @@ class SavedTranslationWindow():
         button = self.ui.sender()
         if button: 
             row = self.ui.savedTranslateWidget.indexAt(button.pos()).row()
+            translateId = int(self.ui.savedTranslateWidget.item(row, 0).text())
             self.ui.savedTranslateWidget.removeRow(row)
-            #self.ui.db.deleteTranslate(row)
+            self.ui.db.deleteTranslate(translateId)
 
     def changeWindow(self) -> None:
         """
