@@ -51,7 +51,7 @@ class DB():
         except Exception as err:
             Logger().log(self.__class__.__name__, f"Select error: {err}")
 
-    def insertTranslate(self, trans_from, trans_to, text_from, text_to, knowledge = 1)  -> None:
+    def insertTranslate(self, trans_from, trans_to, text_from, text_to, knowledge = 1) -> None:
         """
             Insert Row
         """
@@ -63,7 +63,7 @@ class DB():
         except Exception as err:
             Logger().log(self.__class__.__name__, f"Insert error: {err}")
 
-    def updateTranslate(self, id, text)  -> None:
+    def updateTranslate(self, id, text) -> None:
         """
             Update Row
         """
@@ -73,12 +73,12 @@ class DB():
         except Exception as err:
             Logger().log(self.__class__.__name__, f"Update error: {err}")
 
-    def deleteTranslate(self, id)  -> None:
+    def deleteTranslate(self, id) -> None:
         """
             Delete Row
         """
 
         try:
-           self.curs.execute('DELETE FROM Translate WHERE id = ?', (id))
+           self.curs.execute('DELETE FROM Translate WHERE id = ?', (id, ))
         except Exception as err:
             Logger().log(self.__class__.__name__, f"Delete error: {err}")        

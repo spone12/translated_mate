@@ -1,6 +1,6 @@
 # Save translation window
 from classes.logger import *
-from PyQt6 import QtWidgets
+from PyQt6 import QtWidgets, QtCore
 from PyQt6.QtWidgets import QStyledItemDelegate, QPushButton
 
 
@@ -42,14 +42,27 @@ class SavedTranslationWindow():
         rowIndex = 0
         for translation in savedTranslations:
             for j in range (1, 6):
+      
                 if j == 5:
-                    btn = QPushButton("Delete")
-                    self.ui.savedTranslateWidget.setCellWidget(rowIndex, (j - 1), btn)
+                    deleteButton = QPushButton("X")
+                    self.ui.savedTranslateWidget.setCellWidget(rowIndex, (j - 1), deleteButton)
+                    deleteButton.clicked.connect(self.deleteRow)
                 else:
                     self.ui.savedTranslateWidget.setItem(
                         rowIndex, (j - 1), QtWidgets.QTableWidgetItem(translation[j])
                     )
             rowIndex += 1 
+
+    def deleteRow(self):
+        """
+            Delete Row
+        """
+        
+        button = self.ui.sender()
+        if button: 
+            row = self.ui.savedTranslateWidget.indexAt(button.pos()).row()
+            self.ui.savedTranslateWidget.removeRow(row)
+            #self.ui.db.deleteTranslate(row)
 
     def changeWindow(self) -> None:
         """
