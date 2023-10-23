@@ -38,8 +38,10 @@ class SavedTranslationWindow():
 
         # Set read-only for name language columns
         delegate = ReadOnlyDelegate(self.ui.savedTranslateWidget)
-        self.ui.savedTranslateWidget.setItemDelegateForColumn(0, delegate)
-        self.ui.savedTranslateWidget.setItemDelegateForColumn(1, delegate)
+
+        # Block system columns edit
+        for i in range(0, 3):
+            self.ui.savedTranslateWidget.setItemDelegateForColumn(i, delegate)
 
         # Render table
         rowIndex = 0

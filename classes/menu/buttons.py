@@ -15,12 +15,19 @@ class Buttons():
         self.ui.translateBox.clear()
         self.ui.inputBox.clear()
 
-    def saveTranslationWindow(self, eve) -> None:
+    def savedTranslationWindowChange(self, eve) -> None:
         """
-           Window change startup
+           Change Window to Saved translations
         """
-
+ 
         self.ui.savedTranslation.changeWindow()    
+
+    def flashCardsWindowChange(self, eve) -> None:
+        """
+           Change Window to Flash cards
+        """
+ 
+        self.ui.flashCards.changeWindow()    
 
     def copyToClipboard(self, eve) -> None:
         
@@ -79,9 +86,4 @@ class Buttons():
         if self.ui.translateBox.toPlainText() == '':
             return None
         
-        self.ui.db.insertTranslate(
-            self.ui.fromLang.currentText(), 
-            self.ui.toLang.currentText(), 
-            self.ui.inputBox.toPlainText(),
-            self.ui.translateBox.toPlainText()
-        )   
+        self.ui.db.insertTranslate()   

@@ -9,6 +9,7 @@ from classes.translate.TranslationResources.loadLangs import LoadingLangs
 from classes.menu.menu import Menu
 from classes.menu.buttons import Buttons
 from classes.windows.savedTranslationWindow import *
+from classes.windows.flashCardsWindow import *
 from classes.db import *
 
 
@@ -29,6 +30,7 @@ class TranslateMate(QtWidgets.QMainWindow, QtWidgets.QWidget, ui.Ui_MainWindow):
         self.buttons = Buttons(self)
         self.db = DB(self)
         self.savedTranslation = SavedTranslationWindow(self)
+        self.flashCards = FlashCardsWindow(self)
 
         self.programEvents()
         
@@ -42,9 +44,11 @@ class TranslateMate(QtWidgets.QMainWindow, QtWidgets.QWidget, ui.Ui_MainWindow):
         self.reverseTranslate.mousePressEvent = self.buttons.reverseTranslations
         self.clearInput.mousePressEvent = self.buttons.clearTranslate
         self.copyTranslate.mousePressEvent = self.buttons.copyToClipboard
-        self.saveTranslationWindow.mousePressEvent = self.buttons.saveTranslationWindow
         self.actionExit.triggered.connect(self.menu.exitProgramm)
         self.chooseTranslator.triggered.connect(self.loadLang.chooseTranslator)
+
+        self.saveTranslationWindow.mousePressEvent = self.buttons.savedTranslationWindowChange
+        self.flashCardsWindow.mousePressEvent = self.buttons.flashCardsWindowChange
 
 
 if __name__ == "__main__":

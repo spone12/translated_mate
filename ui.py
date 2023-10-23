@@ -268,6 +268,9 @@ class Ui_MainWindow(object):
         self.savedTranslateWidget.setColumnCount(0)
         self.savedTranslateWidget.setRowCount(0)
         self.stackedWidget.addWidget(self.SaveTranslate)
+        self.FlashCards = QtWidgets.QWidget()
+        self.FlashCards.setObjectName("FlashCards")
+        self.stackedWidget.addWidget(self.FlashCards)
         self.saveTranslationWindow = QtWidgets.QLabel(parent=self.centralwidget)
         self.saveTranslationWindow.setGeometry(QtCore.QRect(10, 110, 40, 40))
         self.saveTranslationWindow.setCursor(QtGui.QCursor(QtCore.Qt.CursorShape.PointingHandCursor))
@@ -284,6 +287,22 @@ class Ui_MainWindow(object):
         self.saveTranslationWindow.setPixmap(QtGui.QPixmap("img/saveButton.png"))
         self.saveTranslationWindow.setScaledContents(True)
         self.saveTranslationWindow.setObjectName("saveTranslationWindow")
+        self.flashCardsWindow = QtWidgets.QLabel(parent=self.centralwidget)
+        self.flashCardsWindow.setGeometry(QtCore.QRect(10, 160, 40, 40))
+        self.flashCardsWindow.setCursor(QtGui.QCursor(QtCore.Qt.CursorShape.PointingHandCursor))
+        self.flashCardsWindow.setFocusPolicy(QtCore.Qt.FocusPolicy.NoFocus)
+        self.flashCardsWindow.setAutoFillBackground(False)
+        self.flashCardsWindow.setStyleSheet("#flashCardsWindow {\n"
+"    background-repeat: no-repeat;\n"
+"     border-radius:  5px;\n"
+"}\n"
+"#flashCardsWindow:hover  {\n"
+"    background:  #fff6f7;\n"
+"}")
+        self.flashCardsWindow.setText("")
+        self.flashCardsWindow.setPixmap(QtGui.QPixmap("img/flashCards.png"))
+        self.flashCardsWindow.setScaledContents(True)
+        self.flashCardsWindow.setObjectName("flashCardsWindow")
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(parent=MainWindow)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 1090, 20))
@@ -333,6 +352,7 @@ class Ui_MainWindow(object):
         self.reverseTranslate.setToolTip(_translate("MainWindow", "Reverse translate"))
         self.saveTranslatedText.setToolTip(_translate("MainWindow", "Save translated text"))
         self.saveTranslationWindow.setToolTip(_translate("MainWindow", "Save translation window"))
+        self.flashCardsWindow.setToolTip(_translate("MainWindow", "Save translation window"))
         self.menuMenu.setTitle(_translate("MainWindow", "Menu"))
         self.menuTranslate.setTitle(_translate("MainWindow", "Translate"))
         self.chooseTranslator.setTitle(_translate("MainWindow", "Translator"))

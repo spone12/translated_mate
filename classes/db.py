@@ -31,6 +31,7 @@ class DB():
                 text_from TEXT NOT NULL,
                 text_to TEXT NOT NULL,
                 knowledge SMALLINT DEFAULT 1,
+                translator VARCHAR(50) NOT NULL,
                 created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
             )
         ''')
@@ -51,14 +52,21 @@ class DB():
         except Exception as err:
             Logger().log(self.__class__.__name__, f"Select error: {err}")
 
-    def insertTranslate(self, trans_from, trans_to, text_from, text_to, knowledge = 1) -> None:
+    def insertTranslate(self, knowledge = 1) -> None:
         """
             Insert Row
         """
 
         try:
-            self.curs.execute('INSERT INTO Translate (trans_from, trans_to, text_from, text_to, knowledge) VALUES (?, ?, ?, ?, ?)',
-                (trans_from, trans_to, text_from, text_to, knowledge)
+            self.curs.execute('INSERT INTO Translate (trans_from, trans_to, text_from, text_to, translator, knowledge) VALUES (?, ?, ?, ?, ?, ?)',
+                (
+                    self.ui.fromLang.currentText(),
+                    self.ui.toLang.currentText(),
+                    self.ui.inputBox.toPlainText(), 
+                    self.ui.translateBox.toPlainText(), 
+                    self.ui.currentTranslator, 
+                    knowledge
+                )
             )
         except Exception as err:
             Logger().log(self.__class__.__name__, f"Insert error: {err}")
