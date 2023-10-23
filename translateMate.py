@@ -47,8 +47,8 @@ class TranslateMate(QtWidgets.QMainWindow, QtWidgets.QWidget, ui.Ui_MainWindow):
         self.actionExit.triggered.connect(self.menu.exitProgramm)
         self.chooseTranslator.triggered.connect(self.loadLang.chooseTranslator)
 
-        self.saveTranslationWindow.mousePressEvent = self.buttons.savedTranslationWindowChange
-        self.flashCardsWindow.mousePressEvent = self.buttons.flashCardsWindowChange
+        self.saveTranslationWindow.mousePressEvent = lambda e: self.buttons.changeWindow(self.savedTranslation.QSindex)
+        self.flashCardsWindow.mousePressEvent = lambda e: self.buttons.changeWindow(self.flashCards.QSindex)
 
 
 if __name__ == "__main__":

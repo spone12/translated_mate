@@ -15,19 +15,19 @@ class Buttons():
         self.ui.translateBox.clear()
         self.ui.inputBox.clear()
 
-    def savedTranslationWindowChange(self, eve) -> None:
+    def changeWindow(self, QSIndex) -> None:
         """
-           Change Window to Saved translations
+           Change Window
         """
- 
-        self.ui.savedTranslation.changeWindow()    
-
-    def flashCardsWindowChange(self, eve) -> None:
-        """
-           Change Window to Flash cards
-        """
- 
-        self.ui.flashCards.changeWindow()    
+        
+        if self.ui.stackedWidget.currentIndex() == QSIndex:
+            self.ui.stackedWidget.setCurrentIndex(0)
+        else:
+            match QSIndex:
+                case 1:
+                    self.ui.savedTranslation.changeWindow()
+                case 2:
+                    self.ui.flashCards.changeWindow() 
 
     def copyToClipboard(self, eve) -> None:
         

@@ -9,17 +9,15 @@ class FlashCardsWindow():
         Flash cards window
     """
 
+    QSindex = 2
+
     def __init__(self, ui):
         self.ui = ui
 
     def changeWindow(self) -> None:
         """
-            Change the window to "flash cards", or back to translator
+            Change the window to "flash cards"
         """
         
-        if self.ui.stackedWidget.currentIndex() == 0:
-            
-            self.ui.stackedWidget.setCurrentIndex(2)
-        else:
-            self.ui.stackedWidget.setCurrentIndex(0)
+        self.ui.stackedWidget.setCurrentIndex(self.QSindex)
     

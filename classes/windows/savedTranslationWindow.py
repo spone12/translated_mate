@@ -9,6 +9,7 @@ class SavedTranslationWindow():
         Translation window
     """
 
+    QSindex = 1
     columnsWidth = [50, 100, 100, 350, 350, 50]
     headerLabels = ['id', 'From', 'To', 'Native', 'Translate', 'Delete']
 
@@ -71,15 +72,12 @@ class SavedTranslationWindow():
 
     def changeWindow(self) -> None:
         """
-            Change the window to "saved translations", or back to translator
+            Change the window to "saved translations"
         """
         
-        if self.ui.stackedWidget.currentIndex() == 0:
-            
-            self.renderSavedTable()
-            self.ui.stackedWidget.setCurrentIndex(1)
-        else:
-            self.ui.stackedWidget.setCurrentIndex(0)
+        self.renderSavedTable()
+        self.ui.stackedWidget.setCurrentIndex(self.QSindex)
+
 
 
 class ReadOnlyDelegate(QStyledItemDelegate):
