@@ -55,6 +55,7 @@ class Ui_MainWindow(object):
         self.translateWindow.setFocusPolicy(QtCore.Qt.FocusPolicy.NoFocus)
         self.translateWindow.setAutoFillBackground(False)
         self.translateWindow.setStyleSheet("#translateWindow {\n"
+"    background-color: #fff6f7;\n"
 "    background-repeat: no-repeat;\n"
 "     border-radius:  5px;\n"
 "}\n"

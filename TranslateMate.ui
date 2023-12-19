@@ -89,6 +89,7 @@ QScrollBar::sub-line:vertical {
     </property>
     <property name="styleSheet">
      <string notr="true">#translateWindow {
+	background-color: #fff6f7;
 	background-repeat: no-repeat;
  	border-radius:  5px;
 }

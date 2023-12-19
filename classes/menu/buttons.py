@@ -20,19 +20,21 @@ class Buttons():
            Change Window
         """
 
-        self.ui.translateWindow.setStyleSheet(self.ui.translateWindow.styleSheet().replace('background-color: #fff6f7;', ''))
-        self.ui.saveTranslationWindow.setStyleSheet(self.ui.saveTranslationWindow.styleSheet().replace('background-color: #fff6f7;', ''))
-        self.ui.flashCardsWindow.setStyleSheet(self.ui.flashCardsWindow.styleSheet().replace('background-color: #fff6f7;', ''))
+        windows = [self.ui.translateWindow, self.ui.saveTranslationWindow, self.ui.flashCardsWindow]
+        for w in windows:
+            w.setStyleSheet(w.styleSheet().replace('background-color: #fff6f7;', ''))
+
         match QSIndex:
             case 0:
                 self.ui.stackedWidget.setCurrentIndex(QSIndex)
-                self.ui.translateWindow.setStyleSheet(self.ui.translateWindow.styleSheet().replace('no-repeat;', 'no-repeat;background-color: #fff6f7;'))
             case 1:
                 self.ui.savedTranslation.changeWindow()
-                self.ui.saveTranslationWindow.setStyleSheet(self.ui.saveTranslationWindow.styleSheet().replace('no-repeat;', 'no-repeat;background-color: #fff6f7;'))
             case 2:
                 self.ui.flashCards.changeWindow() 
-                self.ui.flashCardsWindow.setStyleSheet(self.ui.flashCardsWindow.styleSheet().replace('no-repeat;', 'no-repeat;background-color: #fff6f7;'))
+
+        for ind, w in enumerate(windows):
+            if (ind == QSIndex):
+                w.setStyleSheet(w.styleSheet().replace('no-repeat;', 'no-repeat;background-color: #fff6f7;'))
 
     def copyToClipboard(self, eve) -> None:
         
