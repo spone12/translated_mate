@@ -19,15 +19,20 @@ class Buttons():
         """
            Change Window
         """
-        
-        if self.ui.stackedWidget.currentIndex() == QSIndex:
-            self.ui.stackedWidget.setCurrentIndex(0)
-        else:
-            match QSIndex:
-                case 1:
-                    self.ui.savedTranslation.changeWindow()
-                case 2:
-                    self.ui.flashCards.changeWindow() 
+
+        self.ui.translateWindow.setStyleSheet(self.ui.translateWindow.styleSheet().replace('background-color: #fff6f7;', ''))
+        self.ui.saveTranslationWindow.setStyleSheet(self.ui.saveTranslationWindow.styleSheet().replace('background-color: #fff6f7;', ''))
+        self.ui.flashCardsWindow.setStyleSheet(self.ui.flashCardsWindow.styleSheet().replace('background-color: #fff6f7;', ''))
+        match QSIndex:
+            case 0:
+                self.ui.stackedWidget.setCurrentIndex(QSIndex)
+                self.ui.translateWindow.setStyleSheet(self.ui.translateWindow.styleSheet().replace('no-repeat;', 'no-repeat;background-color: #fff6f7;'))
+            case 1:
+                self.ui.savedTranslation.changeWindow()
+                self.ui.saveTranslationWindow.setStyleSheet(self.ui.saveTranslationWindow.styleSheet().replace('no-repeat;', 'no-repeat;background-color: #fff6f7;'))
+            case 2:
+                self.ui.flashCards.changeWindow() 
+                self.ui.flashCardsWindow.setStyleSheet(self.ui.flashCardsWindow.styleSheet().replace('no-repeat;', 'no-repeat;background-color: #fff6f7;'))
 
     def copyToClipboard(self, eve) -> None:
         
@@ -54,7 +59,11 @@ class Buttons():
         """
            Preparation before the translation 
         """
-
+        
+        if self.ui.stackedWidget.currentIndex() != 0:
+            self.changeWindow(0)
+            return
+        
         if not self.ui.inputBox.toPlainText():
             return
 

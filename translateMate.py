@@ -39,7 +39,7 @@ class TranslateMate(QtWidgets.QMainWindow, QtWidgets.QWidget, ui.Ui_MainWindow):
         """
             Loading program events
         """
-        self.translateLabel.mousePressEvent = self.buttons.prepareTranslate
+        self.translateWindow.mousePressEvent = self.buttons.prepareTranslate
         self.saveTranslatedText.mousePressEvent = self.buttons.saveTranslatedText
         self.reverseTranslate.mousePressEvent = self.buttons.reverseTranslations
         self.clearInput.mousePressEvent = self.buttons.clearTranslate

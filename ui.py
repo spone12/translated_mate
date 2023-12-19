@@ -49,22 +49,22 @@ class Ui_MainWindow(object):
 "}")
         self.centralwidget = QtWidgets.QWidget(parent=MainWindow)
         self.centralwidget.setObjectName("centralwidget")
-        self.translateLabel = QtWidgets.QLabel(parent=self.centralwidget)
-        self.translateLabel.setGeometry(QtCore.QRect(10, 60, 40, 40))
-        self.translateLabel.setCursor(QtGui.QCursor(QtCore.Qt.CursorShape.PointingHandCursor))
-        self.translateLabel.setFocusPolicy(QtCore.Qt.FocusPolicy.NoFocus)
-        self.translateLabel.setAutoFillBackground(False)
-        self.translateLabel.setStyleSheet("#translateLabel {\n"
+        self.translateWindow = QtWidgets.QLabel(parent=self.centralwidget)
+        self.translateWindow.setGeometry(QtCore.QRect(10, 60, 40, 40))
+        self.translateWindow.setCursor(QtGui.QCursor(QtCore.Qt.CursorShape.PointingHandCursor))
+        self.translateWindow.setFocusPolicy(QtCore.Qt.FocusPolicy.NoFocus)
+        self.translateWindow.setAutoFillBackground(False)
+        self.translateWindow.setStyleSheet("#translateWindow {\n"
 "    background-repeat: no-repeat;\n"
 "     border-radius:  5px;\n"
 "}\n"
-"#translateLabel:hover  {\n"
+"#translateWindow:hover  {\n"
 "    background:  #fff6f7;\n"
 "}")
-        self.translateLabel.setText("")
-        self.translateLabel.setPixmap(QtGui.QPixmap("img/translation.png"))
-        self.translateLabel.setScaledContents(True)
-        self.translateLabel.setObjectName("translateLabel")
+        self.translateWindow.setText("")
+        self.translateWindow.setPixmap(QtGui.QPixmap("img/translation.png"))
+        self.translateWindow.setScaledContents(True)
+        self.translateWindow.setObjectName("translateWindow")
         self.stackedWidget = QtWidgets.QStackedWidget(parent=self.centralwidget)
         self.stackedWidget.setGeometry(QtCore.QRect(50, 0, 1031, 451))
         self.stackedWidget.setObjectName("stackedWidget")
@@ -278,7 +278,7 @@ class Ui_MainWindow(object):
         self.saveTranslationWindow.setAutoFillBackground(False)
         self.saveTranslationWindow.setStyleSheet("#saveTranslationWindow {\n"
 "    background-repeat: no-repeat;\n"
-"     border-radius:  5px;\n"
+"    border-radius:  5px;\n"
 "}\n"
 "#saveTranslationWindow:hover  {\n"
 "    background:  #fff6f7;\n"
@@ -294,7 +294,7 @@ class Ui_MainWindow(object):
         self.flashCardsWindow.setAutoFillBackground(False)
         self.flashCardsWindow.setStyleSheet("#flashCardsWindow {\n"
 "    background-repeat: no-repeat;\n"
-"     border-radius:  5px;\n"
+"    border-radius:  5px;\n"
 "}\n"
 "#flashCardsWindow:hover  {\n"
 "    background:  #fff6f7;\n"
@@ -345,7 +345,7 @@ class Ui_MainWindow(object):
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "Translated mate"))
-        self.translateLabel.setToolTip(_translate("MainWindow", "Translate text"))
+        self.translateWindow.setToolTip(_translate("MainWindow", "Translate text"))
         self.inputBox.setPlaceholderText(_translate("MainWindow", "Input text"))
         self.copyTranslate.setToolTip(_translate("MainWindow", "Copy translate to clipboard"))
         self.clearInput.setToolTip(_translate("MainWindow", "Clear input and translated text"))

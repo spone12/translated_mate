@@ -66,7 +66,7 @@ QScrollBar::sub-line:vertical {
 }</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QLabel" name="translateLabel">
+   <widget class="QLabel" name="translateWindow">
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -88,11 +88,11 @@ QScrollBar::sub-line:vertical {
      <bool>false</bool>
     </property>
     <property name="styleSheet">
-     <string notr="true">#translateLabel {
+     <string notr="true">#translateWindow {
 	background-repeat: no-repeat;
  	border-radius:  5px;
 }
-#translateLabel:hover  {
+#translateWindow:hover  {
 	background:  #fff6f7;
 }</string>
     </property>
@@ -496,7 +496,7 @@ QHeaderView::section
     <property name="styleSheet">
      <string notr="true">#saveTranslationWindow {
 	background-repeat: no-repeat;
- 	border-radius:  5px;
+	border-radius:  5px;
 }
 #saveTranslationWindow:hover  {
 	background:  #fff6f7;
@@ -536,7 +536,7 @@ QHeaderView::section
     <property name="styleSheet">
      <string notr="true">#flashCardsWindow {
 	background-repeat: no-repeat;
- 	border-radius:  5px;
+	border-radius:  5px;
 }
 #flashCardsWindow:hover  {
 	background:  #fff6f7;
