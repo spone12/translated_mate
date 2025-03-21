@@ -271,6 +271,51 @@ class Ui_MainWindow(object):
         self.stackedWidget.addWidget(self.SaveTranslate)
         self.FlashCards = QtWidgets.QWidget()
         self.FlashCards.setObjectName("FlashCards")
+        self.cardWidget = QtWidgets.QStackedWidget(parent=self.FlashCards)
+        self.cardWidget.setGeometry(QtCore.QRect(40, 60, 200, 151))
+        self.cardWidget.setObjectName("cardWidget")
+        self.page = QtWidgets.QWidget()
+        self.page.setObjectName("page")
+        self.cardTextObj = QtWidgets.QPlainTextEdit(parent=self.page)
+        self.cardTextObj.setGeometry(QtCore.QRect(3, 10, 191, 141))
+        self.cardTextObj.setPlainText("")
+        self.cardTextObj.setObjectName("cardTextObj")
+        self.cardWidget.addWidget(self.page)
+        self.page_2 = QtWidgets.QWidget()
+        self.page_2.setObjectName("page_2")
+        self.cardWidget.addWidget(self.page_2)
+        self.flashCardCansel = QtWidgets.QLabel(parent=self.FlashCards)
+        self.flashCardCansel.setGeometry(QtCore.QRect(90, 230, 40, 40))
+        self.flashCardCansel.setCursor(QtGui.QCursor(QtCore.Qt.CursorShape.PointingHandCursor))
+        self.flashCardCansel.setFocusPolicy(QtCore.Qt.FocusPolicy.NoFocus)
+        self.flashCardCansel.setAutoFillBackground(False)
+        self.flashCardCansel.setStyleSheet("#flashCardsWindow {\n"
+"    background-repeat: no-repeat;\n"
+"    border-radius:  5px;\n"
+"}\n"
+"#flashCardsWindow:hover  {\n"
+"    background:  #fff6f7;\n"
+"}")
+        self.flashCardCansel.setText("")
+        self.flashCardCansel.setPixmap(QtGui.QPixmap("img/cansel.png"))
+        self.flashCardCansel.setScaledContents(True)
+        self.flashCardCansel.setObjectName("flashCardCansel")
+        self.flashCardOk = QtWidgets.QLabel(parent=self.FlashCards)
+        self.flashCardOk.setGeometry(QtCore.QRect(130, 230, 40, 40))
+        self.flashCardOk.setCursor(QtGui.QCursor(QtCore.Qt.CursorShape.PointingHandCursor))
+        self.flashCardOk.setFocusPolicy(QtCore.Qt.FocusPolicy.NoFocus)
+        self.flashCardOk.setAutoFillBackground(False)
+        self.flashCardOk.setStyleSheet("#flashCardsWindow {\n"
+"    background-repeat: no-repeat;\n"
+"    border-radius:  5px;\n"
+"}\n"
+"#flashCardsWindow:hover  {\n"
+"    background:  #fff6f7;\n"
+"}")
+        self.flashCardOk.setText("")
+        self.flashCardOk.setPixmap(QtGui.QPixmap("img/ok.png"))
+        self.flashCardOk.setScaledContents(True)
+        self.flashCardOk.setObjectName("flashCardOk")
         self.stackedWidget.addWidget(self.FlashCards)
         self.saveTranslationWindow = QtWidgets.QLabel(parent=self.centralwidget)
         self.saveTranslationWindow.setGeometry(QtCore.QRect(10, 110, 40, 40))
@@ -341,6 +386,7 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
         self.stackedWidget.setCurrentIndex(0)
+        self.cardWidget.setCurrentIndex(0)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
@@ -352,8 +398,10 @@ class Ui_MainWindow(object):
         self.clearInput.setToolTip(_translate("MainWindow", "Clear input and translated text"))
         self.reverseTranslate.setToolTip(_translate("MainWindow", "Reverse translate"))
         self.saveTranslatedText.setToolTip(_translate("MainWindow", "Save translated text"))
+        self.flashCardCansel.setToolTip(_translate("MainWindow", "Save translation window"))
+        self.flashCardOk.setToolTip(_translate("MainWindow", "Save translation window"))
         self.saveTranslationWindow.setToolTip(_translate("MainWindow", "Save translation window"))
-        self.flashCardsWindow.setToolTip(_translate("MainWindow", "Save translation window"))
+        self.flashCardsWindow.setToolTip(_translate("MainWindow", "Flash cards window"))
         self.menuMenu.setTitle(_translate("MainWindow", "Menu"))
         self.menuTranslate.setTitle(_translate("MainWindow", "Translate"))
         self.chooseTranslator.setTitle(_translate("MainWindow", "Translator"))

@@ -471,7 +471,117 @@ QHeaderView::section
       </property>
      </widget>
     </widget>
-    <widget class="QWidget" name="FlashCards"/>
+    <widget class="QWidget" name="FlashCards">
+     <widget class="QStackedWidget" name="cardWidget">
+      <property name="geometry">
+       <rect>
+        <x>40</x>
+        <y>60</y>
+        <width>200</width>
+        <height>151</height>
+       </rect>
+      </property>
+      <property name="currentIndex">
+       <number>0</number>
+      </property>
+      <widget class="QWidget" name="page">
+       <widget class="QPlainTextEdit" name="cardTextObj">
+        <property name="geometry">
+         <rect>
+          <x>3</x>
+          <y>10</y>
+          <width>191</width>
+          <height>141</height>
+         </rect>
+        </property>
+        <property name="plainText">
+         <string/>
+        </property>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="page_2"/>
+     </widget>
+     <widget class="QLabel" name="flashCardCansel">
+      <property name="geometry">
+       <rect>
+        <x>90</x>
+        <y>230</y>
+        <width>40</width>
+        <height>40</height>
+       </rect>
+      </property>
+      <property name="cursor">
+       <cursorShape>PointingHandCursor</cursorShape>
+      </property>
+      <property name="focusPolicy">
+       <enum>Qt::NoFocus</enum>
+      </property>
+      <property name="toolTip">
+       <string>Save translation window</string>
+      </property>
+      <property name="autoFillBackground">
+       <bool>false</bool>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">#flashCardsWindow {
+	background-repeat: no-repeat;
+	border-radius:  5px;
+}
+#flashCardsWindow:hover  {
+	background:  #fff6f7;
+}</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="pixmap">
+       <pixmap>img/cansel.png</pixmap>
+      </property>
+      <property name="scaledContents">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QLabel" name="flashCardOk">
+      <property name="geometry">
+       <rect>
+        <x>130</x>
+        <y>230</y>
+        <width>40</width>
+        <height>40</height>
+       </rect>
+      </property>
+      <property name="cursor">
+       <cursorShape>PointingHandCursor</cursorShape>
+      </property>
+      <property name="focusPolicy">
+       <enum>Qt::NoFocus</enum>
+      </property>
+      <property name="toolTip">
+       <string>Save translation window</string>
+      </property>
+      <property name="autoFillBackground">
+       <bool>false</bool>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">#flashCardsWindow {
+	background-repeat: no-repeat;
+	border-radius:  5px;
+}
+#flashCardsWindow:hover  {
+	background:  #fff6f7;
+}</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="pixmap">
+       <pixmap>img/ok.png</pixmap>
+      </property>
+      <property name="scaledContents">
+       <bool>true</bool>
+      </property>
+     </widget>
+    </widget>
    </widget>
    <widget class="QLabel" name="saveTranslationWindow">
     <property name="geometry">
@@ -529,7 +639,7 @@ QHeaderView::section
      <enum>Qt::NoFocus</enum>
     </property>
     <property name="toolTip">
-     <string>Save translation window</string>
+     <string>Flash cards window</string>
     </property>
     <property name="autoFillBackground">
      <bool>false</bool>

@@ -45,7 +45,7 @@ class DB():
             sql = "SELECT * FROM Translate"
             
             if where is not None:
-                sql += " WHERE id=" + where
+                sql += " WHERE " + where
 
             self.curs.execute(sql)
             return self.curs.fetchall()
