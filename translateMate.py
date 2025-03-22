@@ -39,16 +39,23 @@ class TranslateMate(QtWidgets.QMainWindow, QtWidgets.QWidget, ui.Ui_MainWindow):
         """
             Loading program events
         """
+
+        # Buttons
+        
         self.translateWindow.mousePressEvent = self.buttons.prepareTranslate
         self.saveTranslatedText.mousePressEvent = self.buttons.saveTranslatedText
         self.reverseTranslate.mousePressEvent = self.buttons.reverseTranslations
         self.clearInput.mousePressEvent = self.buttons.clearTranslate
         self.copyTranslate.mousePressEvent = self.buttons.copyToClipboard
-        self.actionExit.triggered.connect(self.menu.exitProgramm)
-        self.chooseTranslator.triggered.connect(self.loadLang.chooseTranslator)
+        self.pronunciation.mousePressEvent = self.buttons.pronunciation
 
+        # Windows
         self.saveTranslationWindow.mousePressEvent = lambda e: self.buttons.changeWindow(self.savedTranslation.QSindex)
         self.flashCardsWindow.mousePressEvent = lambda e: self.buttons.changeWindow(self.flashCards.QSindex)
+
+        # Triggers
+        self.actionExit.triggered.connect(self.menu.exitProgramm)
+        self.chooseTranslator.triggered.connect(self.loadLang.chooseTranslator)
 
 
 if __name__ == "__main__":

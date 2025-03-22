@@ -1,8 +1,27 @@
-# Translated mate, PyQt6
+# Translated mate
 
-## Translate
+## Description (Описание)
 
-<div>
-    <div>Для конвертации при изменении ui использовать команду: </div>
-    <code>pyuic6 -x TranslateMate.ui -o ui.py</code>
-</div>
+Переводчик с возможностью переводить текст на различные языки с одного на другой.
+
+Возможности:
+- Выбор переводчика:
+    - Google (По умолчанию)
+    - Deeple (Не стабильный)
+
+- Сохранение текста в БД
+- Сохранение форматирования переводимого текста
+- Сохранение переведённого текста в буфер обмена
+
+На будущее:
+
+- Произношение текста (В процессе разработки)
+- Flash карточки тренировки
+
+## Installation (Установка)
+
+Установка зависимостей: `pip install -r requirements.txt` <br />
+Для конвертации при изменении ui использовать команду: `pyuic6 -x TranslateMate.ui -o ui.py`
+
+## Visual appearance of the programme (Визуальный вид программы)
+![Example of a program](img/Examples/Example.png "Example of a program")

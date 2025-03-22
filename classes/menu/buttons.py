@@ -98,3 +98,12 @@ class Buttons():
             return None
         
         self.ui.db.insertTranslate()   
+
+    async def pronunciation(self, eve) -> None:
+        """
+            Text pronunciation
+        """
+
+        pass
+        
+            
