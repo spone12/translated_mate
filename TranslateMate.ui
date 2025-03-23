@@ -724,17 +724,45 @@ QHeaderView::section
      <height>20</height>
     </rect>
    </property>
+   <property name="cursor">
+    <cursorShape>ArrowCursor</cursorShape>
+   </property>
+   <property name="autoFillBackground">
+    <bool>false</bool>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">#menubar {
+	background: black;
+	color: white;
+}
+</string>
+   </property>
    <widget class="QMenu" name="menuMenu">
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: #2e2e2e;</string>
+    </property>
     <property name="title">
      <string>Menu</string>
     </property>
     <addaction name="actionExit"/>
    </widget>
    <widget class="QMenu" name="menuTranslate">
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: #2e2e2e;</string>
+    </property>
     <property name="title">
      <string>Translate</string>
     </property>
     <widget class="QMenu" name="chooseTranslator">
+     <property name="styleSheet">
+      <string notr="true"/>
+     </property>
      <property name="title">
       <string>Translator</string>
      </property>
@@ -744,7 +772,13 @@ QHeaderView::section
     <addaction name="chooseTranslator"/>
     <addaction name="actionLeaveTheFormatting"/>
    </widget>
-   <widget class="QMenu" name="menuProu">
+   <widget class="QMenu" name="menuProunanciation">
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: #2e2e2e;</string>
+    </property>
     <property name="title">
      <string>Pronunciation</string>
     </property>
@@ -758,12 +792,15 @@ QHeaderView::section
    </widget>
    <addaction name="menuMenu"/>
    <addaction name="menuTranslate"/>
-   <addaction name="menuProu"/>
+   <addaction name="menuProunanciation"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
   <action name="actionExit">
    <property name="text">
     <string>Exit</string>
+   </property>
+   <property name="shortcutVisibleInContextMenu">
+    <bool>false</bool>
    </property>
   </action>
   <action name="actionGoogleTranslator">

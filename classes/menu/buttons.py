@@ -1,6 +1,7 @@
 from PyQt6.QtWidgets import QApplication
 from classes.translate.googleTranslator import *
 from classes.translate.deeplTranslator import *
+from classes.modules.pronunciation.pronunciation import *
 
 
 class Buttons():
@@ -99,11 +100,12 @@ class Buttons():
         
         self.ui.db.insertTranslate()   
 
-    async def pronunciation(self, eve) -> None:
+    def pronunciation(self, eve) -> None:
         """
             Text pronunciation
         """
 
-        pass
-        
-            
+        if self.ui.translateBox.toPlainText() == '':
+            return None
+
+        Pronunciation(self.ui.translateBox.toPlainText())
